@@ -1,0 +1,191 @@
+//____________________Razor_Apex_2.1____________________________
+///																///
+/// Move Kill: L2 + Left										///
+/// Autorun: L2/LT + UP, ON/OFF									///
+/// Anti Recoil													///
+/// Aim Correction												///
+/// Rapid Fire: L2+Right DropShot L2+X										///
+/// Hair Trigger												///
+///_____________________________________________________________///
+
+int Razor16 = OFF; //RAPID FIRE ON/OFF                                                 
+int Razor17 = 6;											    
+int Razor18 = 30   //Velocidad del rapid fire .. Valores cerca de de 0 seran mas rapidos 20-30 son Optimos                                                        
+int Razor19 = 13;  
+int Razor20 = 23;    
+int Razor21 = -28;                                                                              
+int Razor22 = ON;  //AIM ASSIST ON/OFF                                                   
+int Razor23 = OFF; //RAPID CROUCH FIRE ON/OFF
+int Razor62 = 403;
+int Razor24 = 60;
+int Razor25 = 210;
+int Razor35;
+int Razor36;
+int Razor37;
+int Razor38 = OFF; //STRAFE SHOT ON/OFF
+int Rand=32767;
+int a; int b;	
+int rumble_tipe = RUMBLE_A;                                         
+int Razor28 = ON; //HAIR TRIGGERS ON/OFF
+define Razor31 = 4; 
+define Razor32 = 7;
+define Razor33 = 5;
+define Razor34 = 20; 
+define Razor1 = 8;
+define Razor2 = 19;
+define Razor3 = 3; 
+define Razor4 = 3; 
+define Razor5 = 6; 
+define Razor6 = 17; 
+define Razor7 = 18;
+define Razor8 = 9; 
+define Razor9 = 10; 
+define Razor10 = 11; 
+define Razor11 = 12; 
+define Razor12 = 13; 
+define Razor13 = 14; 
+define Razor14 = 15; 
+define Razor15 = 16; 
+define Razor41= 0;
+define Razor42 = 70; 
+define Razor43 = TRUE; 
+define Razor49  = PS4_UP;                              
+define Razor50  = PS4_UP;
+int Razor44  = ON; //ANTIRECOIL ON/OFF
+int Razor45   = 24;                                                                  
+int Razor46 =  5;                                                                  
+int Razor47;                                                                         
+int Razor48; 
+
+main {
+
+deadzone(Razor32,Razor32,1,99);
+deadzone(Razor31,Razor31,1,99);
+if(get_val(Razor32) && event_press(PS4_LEFT)){Razor38=!Razor38;
+   if(Razor38 == TRUE){combo_run(Razor28);a=0;b=2;}
+      if(Razor38 == FALSE){combo_run(Razor28);a=2;b=0;}}
+         if(Razor38) {
+          if((get_val(Razor32)) && (get_val(Razor31))){        
+              combo_run(Razor40);}}
+if(get_val(Razor32) && event_press(Razor15)){
+   Razor16 =! Razor16;
+   if(Razor16 == TRUE){combo_run(Razor28);a=0;b=2;}
+   if(Razor16 == FALSE){combo_run(Razor28);a=2;b=0;} 
+   }
+   if(Razor16){
+     if(get_val(Razor31)){
+        combo_run(Razor16);}}
+if(get_val(Razor32) && get_val(Razor31) && get_rumble(RUMBLE_A) >= 27 && get_val(Razor9) >= -10 && get_val(Razor9) < Razor19)
+  set_val(Razor9,Razor19);
+  
+//Anti Recoil
+    if(get_val(PS4_R3) && event_press(Razor50))  { 
+        Razor44=!Razor44;                  
+        set_rumble_tipe(Razor44);               
+    }  
+    if(!Razor43 || get_val(Razor32) && get_val(Razor31 )) {    
+        combo_run(Razor51);                                      
+    }                                                               
+ 
+    if( abs(get_val(10)) > Razor42 || abs(get_val(9)) > Razor42) { 
+        combo_stop (Razor51);                                        
+    } 
+  
+if(get_val(Razor32) && event_press(Razor12)){
+   Razor22 =! Razor22;
+	if(Razor22 == TRUE){combo_run(Razor28);a=0;b=2;}
+    if(Razor22 == FALSE){combo_run(Razor28);a=2;b=0;}}
+if(Razor22){if(get_val(Razor11) <= -20){set_val(Razor1, 100);}
+if(get_val(Razor32) && get_val(Razor8) < Razor20 && get_val(Razor8) > Razor21)
+  combo_run(Razor35);}
+if(get_val(Razor32) && event_press(Razor2)){
+   Razor23 =! Razor23;
+   if(Razor23 == TRUE){combo_run(Razor28);a=0;b=2;}
+   if(Razor23 == FALSE){combo_run(Razor28);a=2;b=0;} 
+   }
+   if(Razor23){
+      if(get_val(Razor32)&&get_val(Razor31)){combo_run(Razor23);}}}
+combo Razor28 {
+if(Razor28){set_rumble(RUMBLE_B,65);}
+set_led(LED_1, 0);
+set_led(LED_2, a);
+set_led(LED_3, b);
+set_led(LED_4, 0);
+wait(550);
+set_led(LED_1, 0);
+set_led(LED_2, 0);
+set_led(LED_3, 0);
+set_led(LED_4, 0);
+wait(250);
+set_led(LED_1, 0);
+set_led(LED_2, a);
+set_led(LED_3, b);
+set_led(LED_4, 0);
+wait(250);
+set_led(LED_1, 0);
+set_led(LED_2, 0);
+set_led(LED_3, 0);
+set_led(LED_4, 0);
+wait(250);
+set_led(LED_1, 0);
+set_led(LED_2, a);
+set_led(LED_3, b);
+set_led(LED_4, 0);
+wait(250);
+reset_leds();
+}
+
+combo Razor51 { //Anti Recoil                                   
+    if(Razor44) {                               
+     Razor47 = get_val(10) + Razor45;        
+     if(Razor47 > 100) Razor47 = 100;        
+     set_val(10, Razor47);                       
+     Razor48 = get_val(9) + Razor46;     
+     if(Razor48 > 100) Razor48 = 100;    
+     set_val(9, Razor48);                      
+    }                                                
+}
+
+combo Razor40 {
+    Razor37 = Rand (500, 1000);
+    set_val(Razor10, 40);
+    wait(Razor37);
+    Razor36 = Rand (500, 1000);
+    set_val(Razor10, inv(40));
+    wait(Razor36);
+    set_val(Razor10, 40);
+}
+combo Razor16 {
+      set_val(Razor31, 100); 
+      wait(Razor18);
+      set_val(Razor31, 0);}
+combo Razor35 { 
+ set_val(Razor8,Razor20);
+ wait(34);
+ set_val(Razor8,Razor21);
+ wait(34); }
+combo Razor23{
+set_val(Razor7,100);
+wait(Razor24);
+wait(Razor25);
+set_val(Razor7,100);}
+
+combo Vibrate {
+set_rumble(rumble_tipe, 100);
+wait(300);
+reset_rumble();
+}
+function set_rumble_tipe ( val) {   //Rumbles                
+    if( val) rumble_tipe = RUMBLE_A ;                
+    else   rumble_tipe = RUMBLE_B ;                  
+    combo_run(Vibrate);                              
+} 
+
+function Rand(min,max){
+ Rand = Rand *8403 % 32767;
+ if (min>= Razor41 && max >= Razor41)
+ return abs(min + (Rand && (max - min)));
+ return min + (Rand % (max - min));
+}
+    define ON = TRUE;
+    define OFF = FALSE;

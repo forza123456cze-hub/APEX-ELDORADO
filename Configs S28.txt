@@ -1,0 +1,87 @@
+4-3 CLASSIC none deadzone anti recoil + aim assist values for Bubblegumz script by Faide. 
+
+If the settings do not work properly then it is due to different controller and dz
+APEX GAME SETTINGS-
+look sensitivity: 4
+ADS sensitivity: 3
+per optic settings: off
+response curve: classic
+look deadzone: none
+button layout-default
+
+ALC PER OPTICS-only important if you want to use 2-4x scope without messing with zen when toggling magnification
+1x-1.0
+2x-1.0
+3x-1.0
+4x-2.1
+6x, 8x, 10x - doesn’t matter I leave these at 1.0 personally
+LEAVE ALC PER OPTICS ON BUT TURN OFF ALCs 
+
+👆settings for apex legends in game menus
+
+————
+
+👇 settings for hax script on zen
+
+Bubblegumz SETTINGS MENU:
+vm speed: 4ms pour PS et 8ms pour xbox
+stick type: polar pour PS et standard pour xbox
+ALC: off 
+
+Bubblegumz GAME SETTINGS MENU:
+deadzone: none
+curve: classic 
+look: 4
+ADS: 3
+
+AR WORKSHOP VALUES-
+
+ALL VALUES LISTED ARE POSITIVE
+
+weapon-a,b
+a= left side ar workshop value 
+b= right side ar workshop value 
+^^^ format for👇 
+
+hipfire: (0, -1)  ignore if not applicable
+
+r301: (-3, 1)
+flatline: (0, -2)
+spitfire: (0, -4)
+hemlock: (2, -3)
+nemesis: (0, -3)
+havoc: (0, -2)
+devo: couldn’t find good values 💔
+L star: (-5, -5)
+r99: (-1, -2)
+car: (1, -3)
+volt: (-1, -3)
+alternator: (0, -2)
+prowler: (0, -2)
+prowler auto: (-2, -2)
+re45: (-1, -2)
+
+2x brzr: (-1, 1)
+3x: (3, 1)
+
+any weapons, sights, barrels or lasers not mentioned above are left on 0,0
+
+
+VELCRO VISION
+gyrate: adptv
+vectors: normal
+magnitude: 10
+frequency: 50
+SR mag: 10
+SR freq: 50
+
+MOTION GRIP
+gyrate: on
+vectors: normal
+magnitude: 10
+frequency: 50
+SR mag: 10
+SR freq: 50
+
+
+Any mod or option that isn’t mentioned here can be adjusted to your preference without affecting anti-recoil or aim assist mods. Enjoy 🙂
