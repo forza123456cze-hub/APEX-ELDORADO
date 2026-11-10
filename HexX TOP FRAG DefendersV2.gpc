@@ -1,0 +1,2319 @@
+/*
+|================================================================================|
+|                  Rainbow Six Siege - HexX TOP FRAG Defenders V2                |
+|================================================================================|
+|  https://discord.com/invite/cKrf25f5X7â€ƒhttps://discord.com/invite/cKrf25f5X7   |  
+|  https://discord.com/invite/cKrf25f5X7â€ƒhttps://discord.com/invite/cKrf25f5X7   |  
+|  https://discord.com/invite/cKrf25f5X7â€ƒhttps://discord.com/invite/cKrf25f5X7   |   
+|--------------------------------------------------------------------------------|
+|                             HOW TO USE THIS SCRIPT                             |
+|--------------------------------------------------------------------------------|
+| !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! |
+| ! IMPORTANT: You Must Put This Defenders Script In Slot 2!                   ! |
+| ! IMPORTANT: You Must Put This Defenders Script In Slot 2!                   ! |
+| ! IMPORTANT: You Must Put This Defenders Script In Slot 2!                   ! |
+| ! IMPORTANT: You Must Put This Defenders Script In Slot 2!                   ! |
+| ! IMPORTANT: You Must Put This Defenders Script In Slot 2!                   ! |
+| !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! |
+|                                                                                |
+| 1. INITIAL SETUP:                                                              |
+| - Set binds controls in the script to match your in-game controller binds      |
+|                                                                                |
+| 2. MENU NAVIGATION:                                                            |
+| - Open Menu: Menu Button + LT                                                  |
+| - Navigate: D-Pad Left/Right to switch modes, Up/Down to adjust values         |
+| - Toggle Features: D-Pad Up/Down to enable/disable mods                        |
+| - Edit Values: Press A/X when "EDIT" is shown                                  |
+| - Exit: B button to back out of menus                                          |
+| - Toggle All Features: VIEW + LT to enable/disable ALL mods                    |
+|                                                                                |
+| 3. ADJUSTING RECOIL IN-GAME:                                                   |
+| 1. Enter Menu (Menu + LT)                                                      |
+| 2. Select Operators >  Select operator                                         |
+| 3. Choose (Primary/Secondary) > Choose Weapon                                  |
+| 4. Press A/X to enter adjustment mode                                          |
+| 5. Use D-Pad Left/Right to switch between:                                     |
+|    - VERTICAL (Up/Down adjusts)                                                |
+|    - HORIZONTAL (Up/Down adjusts)                                              |
+|    - DEADZONE (Up/Down adjusts stick sensitivity)                              |
+|                                                                                |
+| 4. MOD FEATURES:                                                               |
+| - Rapid Fire: Adjustable speed and activation                                  |
+| - Crouch Spam: Multiple behavior modes                                         |
+| - Shaiiko Peek: Advanced lean technique                                        |
+| - Shot Abuse: Quick ADS reset after firing                                     |
+| - Jitter Mod: Micro movements Makes you look xim -                             |
+|Warning: !!!DO NOT USE IN PUBLIC - This is because it is detected by mousetrap!!|
+| - Crouch Shot: Auto-crouch when firing                                         |
+| - Hip Lean: Quick lean from hipfire                                            |
+| - Lean Spam: Rapid lean switching                                              |
+| - PronePeek: Auto-prone when firing only (NOT WHILE ADS) Buggy Working on fix. |
+| - T-Bag: Rapid crouch spam (hold LEFT)                                         |
+|                                                                                |
+|================================================================================|
+|                    PERMANENT RECOIL SETUP INSTRUCTIONS                         |
+|================================================================================|
+|                                                                                |
+| !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! |
+| ! IMPORTANT: Recoil configuration takes time and patience!                   ! |
+| !                                                                            ! |
+| ! Expect to spend 10-20 minutes per operator to get perfect results.         ! |
+| ! The more time you invest in tuning, the better your recoil control will be.! |
+| !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! |
+|                                                                                |
+| To save your recoil settings so they persist when reloading the script:        |
+|                                                                                |
+| 1. Find these arrays in the INIT section:                                      |
+|                                                                                |
+|                                                                                |
+| 2. EXAMPLE: Adjusting Doc's MP5                                                |
+|    - Find Doc in arrays                                                        |
+|defenderPrimaryVerticalRecoil[4 * 3 + 0] = 19; <- This is the Vertical Recoil   | 
+|defenderPrimaryHorizontalRecoil[4 * 3 + 0] = 1; <- This is the Horizontal Recoil|
+|                                                                                |
+| 3.Edit these values 0-100 range for vertical | -100 - 100 range for horizontal:|
+|    - Positive vertical = pulls down (compensates recoil)                       |
+|    - Negative horizontal = compensates right sway                              |
+|    - Positive horizontal = compensates left sway                               |
+|                                                                                |
+|================================================================================|
+|                          GETTING PROPER RECOIL VALUES                          |
+|================================================================================|
+|                                                                                |
+| To find your recoil settings:                                                  |
+|                                                                                |
+| 1. Go to Shooting Range in-game                                                |
+| 2. Fire a full magazine at a wall:                                             |
+|    - Note vertical climb (vertical recoil)                                     |
+|    - Note side-to-side movement (horizontal recoil)                            |
+| 3. Start with default values in script                                         |
+| 4. Make small adjustments (1-2 points at a time)                               |
+| 5. Test fire after each adjustment                                             |
+| 6. Recommended process:                                                        |
+|    a) Set vertical until gun stays level                                       |
+|    b) Set horizontal until pattern is straight                                 |
+|    c) Fine-tune deadzone if needed (default 20 works for most)                 |
+|                                                                                |
+| Note: Perfect recoil control depends on your in-game sensitivity settings and  |
+| weapon attachments.                                                            |
+|                                                                                |
+|================================================================================|
+|                           PLANNED SCRIPT UPDATES                               |
+|================================================================================|
+|                                                                                |
+| 1. NEW MODS COMING SOON:                                                       |
+|                                                                                |
+| 2. Bug Fixes                                                                   |
+|                                                                                |
+| 3. Work on Rapid Fire as it isnt fully finished.                               |
+|                                                                                |
+|================================================================================|
+|                                OTHER NOTES                                     |
+|================================================================================|
+|                                                                                |
+|  - WEAPON SWITCHING:                                                           |
+|    If your primary and secondary weapons get mixed up:                         |
+|    1. Pause the game                                                           |
+|    2. Press your bound weapon switch button                                    |
+|    3. This should correct the weapon assignment                                |
+|                                                                                |
+|  - TROUBLESHOOTING:                                                            |
+|    If scripts stop responding:                                                 |
+|    1. Disable/re-enable the mod (Menu+LT)                                      |
+|    2. Check controller connections                                             |
+|    3. Restart game if issues persist                                           |
+|    4. If menu isnt responding close and reopen it                              |
+|                                                                                |
+|================================================================================|
+*/
+
+
+ // Game bind definitions
+ int Fire = XB1_RT;
+ int ADS = XB1_LT;
+ int Reload = XB1_X;
+ int Switch = XB1_Y;
+ int CrouchButton = XB1_B;
+ int LeanLeft = XB1_LS;
+ int LeanRight = XB1_RS;
+ int Sprint = XB1_LS;
+ int JitterBind = XB1_LT;
+ int ShaikoLeanLeft = XB1_LS;
+ int ShaikoLeanRight = XB1_RS;
+ 
+ init {
+ 
+ for (i = 0; i < 37; i++) {
+  for (j = 0; j < 3; j++) {
+  defenderPrimaryVerticalRecoil[i * 3 + j] = 0;
+  defenderPrimaryHorizontalRecoil[i * 3 + j] = 0;
+  defenderSecondaryVerticalRecoil[i * 3 + j] = 0;
+  defenderSecondaryHorizontalRecoil[i * 3 + j] = 0;
+  }
+ }
+ 
+  // DEFENDERS 
+  // SMOKE (i=0)
+  defenderPrimaryVerticalRecoil[0 * 3 + 0] = 16; defenderPrimaryHorizontalRecoil[0 * 3 + 0] = 4;  // M590A1
+  defenderPrimaryVerticalRecoil[0 * 3 + 1] = 23; defenderPrimaryHorizontalRecoil[0 * 3 + 1] = -2; // FMG-9
+  defenderSecondaryVerticalRecoil[0 * 3 + 0] = 32; defenderSecondaryHorizontalRecoil[0 * 3 + 0] = 5;  // SMG-11
+  defenderSecondaryVerticalRecoil[0 * 3 + 1] = 16; defenderSecondaryHorizontalRecoil[0 * 3 + 1] = 2;  // P226 MK 25
+  
+  // MUTE (i=1)
+  defenderPrimaryVerticalRecoil[1 * 3 + 0] = 16; defenderPrimaryHorizontalRecoil[1 * 3 + 0] = 4;  // M590A1
+  defenderPrimaryVerticalRecoil[1 * 3 + 1] = 20; defenderPrimaryHorizontalRecoil[1 * 3 + 1] = -1; // MP5K
+  defenderSecondaryVerticalRecoil[1 * 3 + 0] = 16; defenderSecondaryHorizontalRecoil[1 * 3 + 0] = 2;  // P226 MK 25
+  
+  // CASTLE (i=2)
+  defenderPrimaryVerticalRecoil[2 * 3 + 0] = 21; defenderPrimaryHorizontalRecoil[2 * 3 + 0] = 1;  // UMP45
+  defenderPrimaryVerticalRecoil[2 * 3 + 1] = 16; defenderPrimaryHorizontalRecoil[2 * 3 + 1] = 4;  // M1014
+  defenderSecondaryVerticalRecoil[2 * 3 + 0] = 16; defenderSecondaryHorizontalRecoil[2 * 3 + 0] = 2;  // M45 MEUSOC
+  defenderSecondaryVerticalRecoil[2 * 3 + 1] = 16; defenderSecondaryHorizontalRecoil[2 * 3 + 1] = 2;  // 5.7 USG
+  
+  // PULSE (i=3)
+  defenderPrimaryVerticalRecoil[3 * 3 + 0] = 21; defenderPrimaryHorizontalRecoil[3 * 3 + 0] = 1;  // UMP45
+  defenderPrimaryVerticalRecoil[3 * 3 + 1] = 16; defenderPrimaryHorizontalRecoil[3 * 3 + 1] = 4;  // M1014
+  defenderSecondaryVerticalRecoil[3 * 3 + 0] = 16; defenderSecondaryHorizontalRecoil[3 * 3 + 0] = 2;  // M45 MEUSOC
+  defenderSecondaryVerticalRecoil[3 * 3 + 1] = 16; defenderSecondaryHorizontalRecoil[3 * 3 + 1] = 2;  // 5.7 USG
+  
+  // DOC (i=4)
+  defenderPrimaryVerticalRecoil[4 * 3 + 0] = 19; defenderPrimaryHorizontalRecoil[4 * 3 + 0] = 1;  // MP5
+  defenderPrimaryVerticalRecoil[4 * 3 + 1] = 16; defenderPrimaryHorizontalRecoil[4 * 3 + 1] = 4;  // SG-CQB
+  defenderSecondaryVerticalRecoil[4 * 3 + 0] = 16; defenderSecondaryHorizontalRecoil[4 * 3 + 0] = 2;  // P9
+  defenderSecondaryVerticalRecoil[4 * 3 + 1] = 16; defenderSecondaryHorizontalRecoil[4 * 3 + 1] = 2;  // LFP586
+  
+  // ROOK (i=5)
+  defenderPrimaryVerticalRecoil[5 * 3 + 0] = 19; defenderPrimaryHorizontalRecoil[5 * 3 + 0] = 1;  // MP5
+  defenderPrimaryVerticalRecoil[5 * 3 + 1] = 16; defenderPrimaryHorizontalRecoil[5 * 3 + 1] = 4;  // SG-CQB
+  defenderSecondaryVerticalRecoil[5 * 3 + 0] = 16; defenderSecondaryHorizontalRecoil[5 * 3 + 0] = 2;  // P9
+  defenderSecondaryVerticalRecoil[5 * 3 + 1] = 16; defenderSecondaryHorizontalRecoil[5 * 3 + 1] = 2;  // LFP586
+  
+  // KAPKAN (i=6)
+  defenderPrimaryVerticalRecoil[6 * 3 + 0] = 21; defenderPrimaryHorizontalRecoil[6 * 3 + 0] = 2;  // 9x19VSN
+  defenderPrimaryVerticalRecoil[6 * 3 + 1] = 16; defenderPrimaryHorizontalRecoil[6 * 3 + 1] = 4;  // SASG-12
+  defenderSecondaryVerticalRecoil[6 * 3 + 0] = 16; defenderSecondaryHorizontalRecoil[6 * 3 + 0] = 2;  // PMM
+  defenderSecondaryVerticalRecoil[6 * 3 + 1] = 16; defenderSecondaryHorizontalRecoil[6 * 3 + 1] = 2;  // GSH-18
+  
+  // TACHANKA (i=7)
+  defenderPrimaryVerticalRecoil[7 * 3 + 0] = 36; defenderPrimaryHorizontalRecoil[7 * 3 + 0] = 3;  // DP27
+  defenderPrimaryVerticalRecoil[7 * 3 + 1] = 16; defenderPrimaryHorizontalRecoil[7 * 3 + 1] = 4;  // SASG-12
+  defenderSecondaryVerticalRecoil[7 * 3 + 0] = 16; defenderSecondaryHorizontalRecoil[7 * 3 + 0] = 2;  // PMM
+  defenderSecondaryVerticalRecoil[7 * 3 + 1] = 16; defenderSecondaryHorizontalRecoil[7 * 3 + 1] = 2;  // GSH-18
+  
+  // JÃ„GER (i=8)
+  defenderPrimaryVerticalRecoil[8 * 3 + 0] = 29; defenderPrimaryHorizontalRecoil[8 * 3 + 0] = 2;  // 416-C CARBINE
+  defenderPrimaryVerticalRecoil[8 * 3 + 1] = 16; defenderPrimaryHorizontalRecoil[8 * 3 + 1] = 4;  // M870
+  defenderSecondaryVerticalRecoil[8 * 3 + 0] = 16; defenderSecondaryHorizontalRecoil[8 * 3 + 0] = 2;  // P12
+  
+  // BANDIT (i=9)
+  defenderPrimaryVerticalRecoil[9 * 3 + 0] = 18; defenderPrimaryHorizontalRecoil[9 * 3 + 0] = 1;  // MP7
+  defenderPrimaryVerticalRecoil[9 * 3 + 1] = 16; defenderPrimaryHorizontalRecoil[9 * 3 + 1] = 4;  // M870
+  defenderSecondaryVerticalRecoil[9 * 3 + 0] = 16; defenderSecondaryHorizontalRecoil[9 * 3 + 0] = 2;  // P12
+  
+  // FROST (i=10)
+  defenderPrimaryVerticalRecoil[10 * 3 + 0] = 19; defenderPrimaryHorizontalRecoil[10 * 3 + 0] = 1;  // 9mm C1
+  defenderPrimaryVerticalRecoil[10 * 3 + 1] = 16; defenderPrimaryHorizontalRecoil[10 * 3 + 1] = 4;  // Super 90
+  defenderSecondaryVerticalRecoil[10 * 3 + 0] = 16; defenderSecondaryHorizontalRecoil[10 * 3 + 0] = 2;  // MK1 9mm
+  
+  // VALKYRIE (i=11)
+  defenderPrimaryVerticalRecoil[11 * 3 + 0] = 21; defenderPrimaryHorizontalRecoil[11 * 3 + 0] = 1;  // MPX
+  defenderSecondaryVerticalRecoil[11 * 3 + 0] = 16; defenderSecondaryHorizontalRecoil[11 * 3 + 0] = 2;  // D-50
+  
+  // CAVEIRA (i=12)
+  defenderPrimaryVerticalRecoil[12 * 3 + 0] = 20; defenderPrimaryHorizontalRecoil[12 * 3 + 0] = 1;  // M12
+  defenderPrimaryVerticalRecoil[12 * 3 + 1] = 16; defenderPrimaryHorizontalRecoil[12 * 3 + 1] = 4;  // SPAS-15
+  defenderSecondaryVerticalRecoil[12 * 3 + 0] = 16; defenderSecondaryHorizontalRecoil[12 * 3 + 0] = 2;  // PRB92
+  defenderSecondaryVerticalRecoil[12 * 3 + 1] = 13; defenderSecondaryHorizontalRecoil[12 * 3 + 1] = 1;  // Luison
+  
+  // ECHO (i=13)
+  defenderPrimaryVerticalRecoil[13 * 3 + 0] = 17; defenderPrimaryHorizontalRecoil[13 * 3 + 0] = 1;  // MP5SD
+  defenderPrimaryVerticalRecoil[13 * 3 + 1] = 16; defenderPrimaryHorizontalRecoil[13 * 3 + 1] = 4;  // Supernova
+  defenderSecondaryVerticalRecoil[13 * 3 + 0] = 16; defenderSecondaryHorizontalRecoil[13 * 3 + 0] = 2;  // P229
+  defenderSecondaryVerticalRecoil[13 * 3 + 1] = 23; defenderSecondaryHorizontalRecoil[13 * 3 + 1] = 3;  // Bearing 9
+  
+  // MIRA (i=14)
+  defenderPrimaryVerticalRecoil[14 * 3 + 0] = 26; defenderPrimaryHorizontalRecoil[14 * 3 + 0] = 2;  // Vector .45 ACP
+  defenderPrimaryVerticalRecoil[14 * 3 + 1] = 16; defenderPrimaryHorizontalRecoil[14 * 3 + 1] = 4;  // ITA12L
+  defenderSecondaryVerticalRecoil[14 * 3 + 0] = 16; defenderSecondaryHorizontalRecoil[14 * 3 + 0] = 2;  // USP40
+  defenderSecondaryVerticalRecoil[14 * 3 + 1] = 16; defenderSecondaryHorizontalRecoil[14 * 3 + 1] = 2;  // ITA12S
+  
+  // LESION (i=15)
+  defenderPrimaryVerticalRecoil[15 * 3 + 0] = 19; defenderPrimaryHorizontalRecoil[15 * 3 + 0] = 1;  // T-5 SMG
+  defenderPrimaryVerticalRecoil[15 * 3 + 1] = 16; defenderPrimaryHorizontalRecoil[15 * 3 + 1] = 4;  // Six12 SD
+  defenderSecondaryVerticalRecoil[15 * 3 + 0] = 16; defenderSecondaryHorizontalRecoil[15 * 3 + 0] = 2;  // Q-929
+  
+  // ELA (i=16)
+  defenderPrimaryVerticalRecoil[16 * 3 + 0] = 29; defenderPrimaryHorizontalRecoil[16 * 3 + 0] = 3;  // Scorpion EVO 3 A1
+  defenderPrimaryVerticalRecoil[16 * 3 + 1] = 16; defenderPrimaryHorizontalRecoil[16 * 3 + 1] = 4;  // FO-12
+  defenderSecondaryVerticalRecoil[16 * 3 + 0] = 16; defenderSecondaryHorizontalRecoil[16 * 3 + 0] = 2;  // RG15
+  
+  // VIGIL (i=17)
+  defenderPrimaryVerticalRecoil[17 * 3 + 0] = 21; defenderPrimaryHorizontalRecoil[17 * 3 + 0] = 1;  // K1A
+  defenderPrimaryVerticalRecoil[17 * 3 + 1] = 16; defenderPrimaryHorizontalRecoil[17 * 3 + 1] = 4;  // BOSG.12.2
+  defenderSecondaryVerticalRecoil[17 * 3 + 0] = 21; defenderSecondaryHorizontalRecoil[17 * 3 + 0] = 1;  // C75 Auto
+  defenderSecondaryVerticalRecoil[17 * 3 + 1] = 31; defenderSecondaryHorizontalRecoil[17 * 3 + 1] = 5;  // SMG-12
+  
+  // MAESTRO (i=18)
+  defenderPrimaryVerticalRecoil[18 * 3 + 0] = 33; defenderPrimaryHorizontalRecoil[18 * 3 + 0] = 2;  // ALDA 5.56
+  defenderPrimaryVerticalRecoil[18 * 3 + 1] = 16; defenderPrimaryHorizontalRecoil[18 * 3 + 1] = 4;  // ACS12
+  defenderSecondaryVerticalRecoil[18 * 3 + 0] = 16; defenderSecondaryHorizontalRecoil[18 * 3 + 0] = 2;  // Bailiff 410
+  defenderSecondaryVerticalRecoil[18 * 3 + 1] = 16; defenderSecondaryHorizontalRecoil[18 * 3 + 1] = 2;  // Keratos .357
+  
+  // ALIBI (i=19)
+  defenderPrimaryVerticalRecoil[19 * 3 + 0] = 19; defenderPrimaryHorizontalRecoil[19 * 3 + 0] = 1;  // MX4 Storm
+  defenderPrimaryVerticalRecoil[19 * 3 + 1] = 16; defenderPrimaryHorizontalRecoil[19 * 3 + 1] = 4;  // ACS12
+  defenderSecondaryVerticalRecoil[19 * 3 + 0] = 16; defenderSecondaryHorizontalRecoil[19 * 3 + 0] = 2;  // Bailiff 410
+  defenderSecondaryVerticalRecoil[19 * 3 + 1] = 16; defenderSecondaryHorizontalRecoil[19 * 3 + 1] = 2;  // Keratos .357
+  
+  // CLASH (i=20)
+  defenderPrimaryVerticalRecoil[20 * 3 + 0] = 16; defenderPrimaryHorizontalRecoil[20 * 3 + 0] = 4;  // CCE Shield
+  defenderSecondaryVerticalRecoil[20 * 3 + 0] = 31; defenderSecondaryHorizontalRecoil[20 * 3 + 0] = 4;  // SPSMG9
+  defenderSecondaryVerticalRecoil[20 * 3 + 1] = 16; defenderSecondaryHorizontalRecoil[20 * 3 + 1] = 2;  // P-10C
+  
+  // KAID (i=21)
+  defenderPrimaryVerticalRecoil[21 * 3 + 0] = 23; defenderPrimaryHorizontalRecoil[21 * 3 + 0] = 2;  // AUG A3
+  defenderPrimaryVerticalRecoil[21 * 3 + 1] = 26; defenderPrimaryHorizontalRecoil[21 * 3 + 1] = 0;  // TCSG12
+  defenderSecondaryVerticalRecoil[21 * 3 + 0] = 16; defenderSecondaryHorizontalRecoil[21 * 3 + 0] = 2;  // .44 Mag Semi-Auto
+  defenderSecondaryVerticalRecoil[21 * 3 + 1] = 16; defenderSecondaryHorizontalRecoil[21 * 3 + 1] = 2;  // LFP586
+  
+  // MOZZIE (i=22)
+  defenderPrimaryVerticalRecoil[22 * 3 + 0] = 25; defenderPrimaryHorizontalRecoil[22 * 3 + 0] = 1;  // Commando 9
+  defenderPrimaryVerticalRecoil[22 * 3 + 1] = 19; defenderPrimaryHorizontalRecoil[22 * 3 + 1] = 1;  // P10 Roni
+  defenderSecondaryVerticalRecoil[22 * 3 + 0] = 16; defenderSecondaryHorizontalRecoil[22 * 3 + 0] = 2;  // SDP 9mm
+  
+  // WARDEN (i=23)
+  defenderPrimaryVerticalRecoil[23 * 3 + 0] = 21; defenderPrimaryHorizontalRecoil[23 * 3 + 0] = 1;  // MPX
+  defenderPrimaryVerticalRecoil[23 * 3 + 1] = 16; defenderPrimaryHorizontalRecoil[23 * 3 + 1] = 4;  // M590A1
+  defenderSecondaryVerticalRecoil[23 * 3 + 0] = 31; defenderSecondaryHorizontalRecoil[23 * 3 + 0] = 5;  // SMG-12
+  defenderSecondaryVerticalRecoil[23 * 3 + 1] = 16; defenderSecondaryHorizontalRecoil[23 * 3 + 1] = 2;  // P-10C
+  
+  // GOYO (i=24)
+  defenderPrimaryVerticalRecoil[24 * 3 + 0] = 26; defenderPrimaryHorizontalRecoil[24 * 3 + 0] = 2;  // Vector .45 ACP
+  defenderPrimaryVerticalRecoil[24 * 3 + 1] = 26; defenderPrimaryHorizontalRecoil[24 * 3 + 1] = 0;  // TCSG12
+  defenderSecondaryVerticalRecoil[24 * 3 + 0] = 16; defenderSecondaryHorizontalRecoil[24 * 3 + 0] = 2;  // P229
+  
+  // WAMAI (i=25)
+  defenderPrimaryVerticalRecoil[25 * 3 + 0] = 23; defenderPrimaryHorizontalRecoil[25 * 3 + 0] = -1; // MP5K
+  defenderPrimaryVerticalRecoil[25 * 3 + 1] = 23; defenderPrimaryHorizontalRecoil[25 * 3 + 1] = 2;  // AUG A3
+  defenderSecondaryVerticalRecoil[25 * 3 + 0] = 16; defenderSecondaryHorizontalRecoil[25 * 3 + 0] = 2;  // P12
+  defenderSecondaryVerticalRecoil[25 * 3 + 1] = 16; defenderSecondaryHorizontalRecoil[25 * 3 + 1] = 2;  // Keratos .357
+  
+  // ORYX (i=26)
+  defenderPrimaryVerticalRecoil[26 * 3 + 0] = 19; defenderPrimaryHorizontalRecoil[26 * 3 + 0] = 1;  // T-5 SMG
+  defenderPrimaryVerticalRecoil[26 * 3 + 1] = 16; defenderPrimaryHorizontalRecoil[26 * 3 + 1] = 4;  // SPAS-12
+  defenderSecondaryVerticalRecoil[26 * 3 + 0] = 16; defenderSecondaryHorizontalRecoil[26 * 3 + 0] = 2;  // Bailiff 410
+  defenderSecondaryVerticalRecoil[26 * 3 + 1] = 16; defenderSecondaryHorizontalRecoil[26 * 3 + 1] = 2;  // USP40
+  
+  // MELUSI (i=27)
+  defenderPrimaryVerticalRecoil[27 * 3 + 0] = 19; defenderPrimaryHorizontalRecoil[27 * 3 + 0] = 1;  // MP5
+  defenderPrimaryVerticalRecoil[27 * 3 + 1] = 16; defenderPrimaryHorizontalRecoil[27 * 3 + 1] = 4;  // Super 90
+  defenderSecondaryVerticalRecoil[27 * 3 + 0] = 16; defenderSecondaryHorizontalRecoil[27 * 3 + 0] = 2;  // RG15
+  
+  // ARUNI (i=28)
+  defenderPrimaryVerticalRecoil[28 * 3 + 0] = 19; defenderPrimaryHorizontalRecoil[28 * 3 + 0] = 1;  // P10 Roni
+  defenderPrimaryVerticalRecoil[28 * 3 + 1] = 26; defenderPrimaryHorizontalRecoil[28 * 3 + 1] = 1;  // DMR-14
+  defenderSecondaryVerticalRecoil[28 * 3 + 0] = 16; defenderSecondaryHorizontalRecoil[28 * 3 + 0] = 2;  // PRB92
+  
+  // THUNDERBIRD (i=29)
+  defenderPrimaryVerticalRecoil[29 * 3 + 0] = 26; defenderPrimaryHorizontalRecoil[29 * 3 + 0] = 0;  // SPEAR .308
+  defenderPrimaryVerticalRecoil[29 * 3 + 1] = 16; defenderPrimaryHorizontalRecoil[29 * 3 + 1] = 4;  // SPAS-15
+  defenderSecondaryVerticalRecoil[29 * 3 + 0] = 16; defenderSecondaryHorizontalRecoil[29 * 3 + 0] = 2;  // Q-929
+  
+  // THORN (i=30)
+  defenderPrimaryVerticalRecoil[30 * 3 + 0] = 22; defenderPrimaryHorizontalRecoil[30 * 3 + 0] = 1;  // UZK50GI
+  defenderPrimaryVerticalRecoil[30 * 3 + 1] = 16; defenderPrimaryHorizontalRecoil[30 * 3 + 1] = 4;  // M870
+  defenderSecondaryVerticalRecoil[30 * 3 + 0] = 21; defenderSecondaryHorizontalRecoil[30 * 3 + 0] = 1;  // C75 Auto
+  defenderSecondaryVerticalRecoil[30 * 3 + 1] = 16; defenderSecondaryHorizontalRecoil[30 * 3 + 1] = 2;  // 1911 TACOPS
+  
+  // AZAMI (i=31)
+  defenderPrimaryVerticalRecoil[31 * 3 + 0] = 21; defenderPrimaryHorizontalRecoil[31 * 3 + 0] = 2;  // 9x19VSN
+  defenderPrimaryVerticalRecoil[31 * 3 + 1] = 16; defenderPrimaryHorizontalRecoil[31 * 3 + 1] = 4;  // ACS12
+  defenderSecondaryVerticalRecoil[31 * 3 + 0] = 16; defenderSecondaryHorizontalRecoil[31 * 3 + 0] = 2;  // D-50
+  
+  // SOLIS (i=32)
+  defenderPrimaryVerticalRecoil[32 * 3 + 0] = 18; defenderPrimaryHorizontalRecoil[32 * 3 + 0] = 1;  // P90
+  defenderPrimaryVerticalRecoil[32 * 3 + 1] = 16; defenderPrimaryHorizontalRecoil[32 * 3 + 1] = 4;  // ITA12L
+  defenderSecondaryVerticalRecoil[32 * 3 + 0] = 31; defenderSecondaryHorizontalRecoil[32 * 3 + 0] = 4;  // SMG-11
+  
+  // FENRIR (i=33)
+  defenderPrimaryVerticalRecoil[33 * 3 + 0] = 18; defenderPrimaryHorizontalRecoil[33 * 3 + 0] = 1;  // MP7
+  defenderPrimaryVerticalRecoil[33 * 3 + 1] = 16; defenderPrimaryHorizontalRecoil[33 * 3 + 1] = 4;  // SASG-12
+  defenderSecondaryVerticalRecoil[33 * 3 + 0] = 16; defenderSecondaryHorizontalRecoil[33 * 3 + 0] = 2;  // P226 MK 25
+  
+  // TUBARÃƒO (i=34)
+  defenderPrimaryVerticalRecoil[34 * 3 + 0] = 21; defenderPrimaryHorizontalRecoil[34 * 3 + 0] = 1;  // MPX
+  defenderPrimaryVerticalRecoil[34 * 3 + 1] = 26; defenderPrimaryHorizontalRecoil[34 * 3 + 1] = 0;  // AR-15.50
+  defenderSecondaryVerticalRecoil[34 * 3 + 0] = 16; defenderSecondaryHorizontalRecoil[34 * 3 + 0] = 2;  // P226 MK 25
+  
+  // SENTRY (i=35)
+  defenderPrimaryVerticalRecoil[35 * 3 + 0] = 19; defenderPrimaryHorizontalRecoil[35 * 3 + 0] = 1;  // MP5
+  defenderPrimaryVerticalRecoil[35 * 3 + 1] = 16; defenderPrimaryHorizontalRecoil[35 * 3 + 1] = 4;  // M870
+  defenderSecondaryVerticalRecoil[35 * 3 + 0] = 16; defenderSecondaryHorizontalRecoil[35 * 3 + 0] = 2;  // P12
+  
+  // SKOPÃ“S (i=36)
+  defenderPrimaryVerticalRecoil[36 * 3 + 0] = 22; defenderPrimaryHorizontalRecoil[36 * 3 + 0] = 2;  // PCX-33
+  defenderSecondaryVerticalRecoil[36 * 3 + 0] = 16; defenderSecondaryHorizontalRecoil[36 * 3 + 0] = 2;  // P229
+ }
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ // -----------------------------
+ // Initialization
+ // -----------------------------
+ int j;
+ int i;
+ int idx;
+ 
+
+ // Script switching variables
+ int currentScript = 2;  // 1 = Attackers, 2 = Defenders
+ int scriptSwitchMode = FALSE;
+
+ // --------------------------
+ // Global Variables and Binds
+ // --------------------------
+ 
+
+ // OLED and timer variables
+ int msTimer = 0;
+ int inMenu = 0;
+ int menuMode = 1;
+ 
+
+ // Edge detection variables
+ int prevMenu = 0;
+ int prevLT = 0;
+ int prevB = 0;
+ int prevRight = 0;
+ int prevLeft = 0;
+ int prevA = 0;
+ int prevUp = 0;
+ int prevDown = 0;
+ int currMenu = 0;
+ int currLT = 0;
+ int currB = 0;
+ int currRight = 0;
+ int currLeft = 0;
+ int currUp = 0;
+ int currDown = 0;
+ int currA = 0;
+ int currLeftButton;
+ int ry;
+ int rx;
+ 
+
+ // Main toggle for all profiles
+ int ModToggle = TRUE;
+ int togglePressed = FALSE;
+ int lastButtonState = 0;
+ int ignoreInputTimer = 0;
+ 
+
+ // Operator selection and adjustment variables
+ int currentDefender = 0;
+ int adjustDelayTimer = 0;
+ int adjustDelayActive = FALSE;
+ int adjustIncrement = 0;
+ int adjustType = 0;
+ int currentSide = 1; // 1 = Operators, 2 = Mods, 3 = Script Switch
+ int antiRecoilAdjust = FALSE;
+ int antiRecoilAdjustMode = 1; // 1 = Vertical, 2 = Horizontal, 3 = deadzone
+ int sideSelected = FALSE;     // Flag to check if side has been selected
+ 
+
+ // Weapon selection variables
+ int currentWeapon = 1;        // 1 = Primary, 2 = Secondary
+ int currentPrimaryWeapon = 0; // Index of selected primary weapon
+ int currentSecondaryWeapon = 0; // Index of selected secondary weapon
+ int WeaponSelectMode = FALSE; // Flag to determine if in Weapon select mode
+ int WeaponSwitched = FALSE;   // Flag to detect Weapon switching
+ int prevSwitchButton = 0;     // Track previous state of Switch button
+ int WeaponSpecificSelectMode = FALSE; // Flag for selecting specific weapon from loadout
+ 
+
+ // Deadzone setting
+ int deadzone = 22;
+ 
+
+ // --------------------------
+ // Mod Toggle Variables and Settings
+ // --------------------------
+ // Toggle variables
+ int RapidFireToggle = TRUE;
+ int CrouchSpamToggle = FALSE;
+ int ShaiikoPeekToggle = TRUE;
+ int ShotAbuseToggle = TRUE;
+ int RSJitterToggle = FALSE;
+ int CrouchShotToggle = FALSE;
+ int HipLeanToggle = FALSE;
+ int LeanSpamToggle = FALSE; 
+ int PronePeekToggle = FALSE; 
+ int TBagToggle = TRUE;       // NEW: Tea Bag toggle
+ 
+
+ // Adjustment flags
+ int rapidFireAdjust  = FALSE;
+ int crouchSpamAdjust = FALSE;
+ int shaiikoPeekAdjust = FALSE;
+ int shotAbuseAdjust = FALSE;
+ int rsJitterAdjust = FALSE;
+ int crouchShotAdjust = FALSE;
+ int hipLeanAdjust = FALSE;
+ int leanSpamAdjust = FALSE; 
+ int PronePeekAdjust = FALSE; 
+ 
+
+ // Weapon switch timing variables
+ int switchPressTime = 0;      // Tracks how long Y is held
+ int switchHeld = FALSE;       // Tracks if Y is being held
+ 
+
+ // Mode selection
+ int currentModMode = 1; // 1-10 for different mods (added tBag mod)
+ 
+
+ // Adjustment mode
+ int currentModAdjustMode = 1;
+ int crouchSpamAdjustMode = 1;
+ 
+
+ // -----------------------------
+ // Rapid Fire Variables
+ // -----------------------------
+ int rapidFireSpeed = 15; // Adjust this value (1-50)
+ int rapidFireState = 0;
+ int rapidFireMode = 2;        // 1 = All Guns, 2 = Secondary Only
+ int rapidFireActivation = 1;  // 1 = On Fire, 2 = ADS + Fire
+ int gunAllowed;
+ int shouldFire;
+ // -----------------------------
+ // Crouch Spam Variables
+ // -----------------------------
+ int crouchSpamSpeed = 15;
+ int crouchSpamState = 0;
+ int crouchHoldTimer = 0;
+ int crouchActivationTime = 62;
+ int crouchSpamMode = 2;
+ 
+
+ // -----------------------------
+ // Shaiiko Peek Variables
+ // -----------------------------
+ int shaiikoPeekDelay = 70;
+ int ShaiikoCrouchToggle = TRUE;
+ 
+
+ // -----------------------------
+ // Shot Abuse Variables
+ // -----------------------------
+ int aimOutDelay = 20; // Delay in milliseconds before re-aiming
+ int shotAbuseActive = FALSE;
+ 
+
+ // -----------------------------
+ // RS Jitter Variables
+ // -----------------------------
+ int rsJitterStrength = 15;
+ int rsJitterActive = FALSE;
+ int jitterX = 0;
+ int jitterY = 0;
+ int jitterDelay = 30;
+ int jitterStep = 0;
+ 
+
+ //------------------------------
+ // Crouch Shot Variables
+ //------------------------------
+ int lastFire = FALSE;
+ int crouchOverride = FALSE;
+ int fireHoldTime = 0;    // Time fire has been held in ms
+ 
+
+ //--------------------------------
+ // Hip Lean Variables
+ //--------------------------------A
+ int vmSpeedIndex = 0;
+ int quickToggleState = TRUE;
+ int HipLeanDelay = 25;
+ int InvertedLean = TRUE;
+ 
+
+ //--------------------------------
+ // Lean Spam Variables
+ //--------------------------------
+ int leanSpamSpeed = 10;
+ int leanSpamState = 0;
+ int leanDirection = 0; // 0 = left, 1 = right
+ 
+
+ //--------------------------------
+ // PronePeek Variables
+ //--------------------------------
+ int PronePeekDelay = 50; // Delay before standing back up
+ int PronePeekActive = FALSE;
+ int lastFireState = FALSE;
+ int standUpTimer = 0;
+ int crouchTimer = 0;
+ 
+
+ //--------------------------------
+ // NEW: tBag Variables
+ //--------------------------------
+ int tBagState = 0;
+ int tBagSpeed = 1; // Fixed at fastest speed (1)
+ int prevLeftButton = 0;
+ int leftHoldTimer = 0;
+ 
+
+ // --------------------------
+ // Defender Operator Names
+ // --------------------------
+ const string DefenderNames[] = {
+  "SMOKE", "MUTE", "CASTLE", "PULSE", "DOC",
+  "ROOK", "KAPKAN", "TACHANKA", "JAGER", "BANDIT",
+  "FROST", "VALKYRIE", "CAVEIRA", "ECHO", "MIRA",
+  "LESION", "ELA", "VIGIL", "MAESTRO", "ALIBI",
+  "CLASH", "KAID", "MOZZIE", "WARDEN", "GOYO",
+  "WAMAI", "ORYX", "MELUSI", "ARUNI", "THUNDERBIRD",
+  "THORN", "AZAMI", "SOLIS", "FENRIR", "TUBARAO",
+  "SENTRY", "SKOPOS"  // Added new operator
+ };
+ 
+
+ // Updated Defender Weapon Names 
+ const string DefenderPrimaryWeapons[] = {
+  // SMOKE (i=0)
+  "M590A1", "FMG-9", "--NONE--",
+  // MUTE (i=1)
+  "MP5K", "M590A1", "--NONE--",
+  // CASTLE (i=2)
+  "UMP45", "M1014", "--NONE--",
+  // PULSE (i=3)
+  "UMP45", "M1014", "--NONE--",
+  // DOC (i=4)
+  "MP5", "SG-CQB", "P90",
+  // ROOK (i=5)
+  "MP5", "SG-CQB", "P90",
+  // KAPKAN (i=6)
+  "9x19VSN", "SASG-12", "--NONE--",
+  // TACHANKA (i=7)
+  "DP27", "9x19VSN", "--NONE--",
+  // JÃ„GER (i=8)
+  "416-C CARBINE", "M870", "--NONE--",
+  // BANDIT (i=9)
+  "MP7", "M870", "--NONE--",
+  // FROST (i=10)
+  "Super 90", "9mm C1", "--NONE--",
+  // VALKYRIE (i=11)
+  "MPX", "SPAS-12", "--NONE--",
+  // CAVEIRA (i=12)
+  "M12", "SPAS-15", "--NONE--",
+  // ECHO (i=13)
+  "MP5SD", "Supernova", "--NONE--",
+  // MIRA (i=14)
+  "Vector .45 ACP", "ITA12L", "--NONE--",
+  // LESION (i=15)
+  "T-5 SMG", "Six12 SD", "--NONE--",
+  // ELA (i=16)
+  "Scorpion EVO 3 A1", "FO-12", "--NONE--",
+  // VIGIL (i=17)
+  "K1A", "BOSG.12.2", "--NONE--",
+  // MAESTRO (i=18)
+  "ALDA 5.56", "ACS12", "--NONE--",
+  // ALIBI (i=19)
+  "MX4 Storm", "ACS12", "--NONE--",
+  // CLASH (i=20)
+  "CCE Shield", "--NONE--", "--NONE--",
+  // KAID (i=21)
+  "AUG A3", "TCSG12", "--NONE--",
+  // MOZZIE (i=22)
+  "Commando 9", "P10 Roni", "--NONE--",
+  // WARDEN (i=23)
+  "MPX", "M590A1", "--NONE--",
+  // GOYO (i=24)
+  "Vector .45 ACP", "TCSG12", "--NONE--",
+  // WAMAI (i=25)
+  "AUG A2", "MP5K", "--NONE--",
+  // ORYX (i=26)
+  "T-5 SMG", "SPAS-12", "--NONE--",
+  // MELUSI (i=27)
+  "MP5", "Super 90", "--NONE--",
+  // ARUNI (i=28)
+  "P10 Roni", "Mk 14 EBR", "--NONE--",
+  // THUNDERBIRD (i=29)
+  "SPEAR .308", "SPAS-15", "--NONE--",
+  // THORN (i=30)
+  "UZK50GI", "M870", "--NONE--",
+  // AZAMI (i=31)
+  "9x19VSN", "ACS12", "--NONE--",
+  // SOLIS (i=32)
+  "P90", "ITA12L", "--NONE--",
+  // FENRIR (i=33)
+  "MP7", "SASG-12", "--NONE--",
+  // TUBARÃƒO (i=34)
+  "MPX", "AR-15.50", "--NONE--",
+  // SENTRY (i=35)
+  "Commando 9", "M870", "--NONE--",
+  // SKOPÃ“S (i=36) - NEW OPERATOR
+  "PCX-33", "--NONE--", "--NONE--"
+ };
+ 
+
+ const string DefenderSecondaryWeapons[] = {
+  // SMOKE (i=0)
+  "SMG-11", "P226 MK 25", "--NONE--",
+  // MUTE (i=1)
+  "P226 MK 25", "SMG-11", "--NONE--",
+  // CASTLE (i=2)
+  "M45 MEUSOC", "5.7 USG", "Super Shorty",
+  // PULSE (i=3)
+  "M45 MEUSOC", "5.7 USG", "--NONE--",
+  // DOC (i=4)
+  "P9", "LFP586", "Bailiff 410",
+  // ROOK (i=5)
+  "P9", "LFP586", "--NONE--",
+  // KAPKAN (i=6)
+  "PMM", "GSH-18", "--NONE--",
+  // TACHANKA (i=7)
+  "PMM", "GSH-18", "Bearing 9",
+  // JÃ„GER (i=8)
+  "P12", "--NONE--", "--NONE--",
+  // BANDIT (i=9)
+  "P12", "--NONE--", "--NONE--",
+  // FROST (i=10)
+  "MK1 9mm", "ITA12S", "--NONE--",
+  // VALKYRIE (i=11)
+  "D-50", "--NONE--", "--NONE--",
+  // CAVEIRA (i=12)
+  "Luison", "--NONE--", "--NONE--",
+  // ECHO (i=13)
+  "Bearing 9", "P229", "--NONE--",
+  // MIRA (i=14)
+  "USP40", "ITA12S", "--NONE--",
+  // LESION (i=15)
+  "Q-929", "Super Shorty", "--NONE--",
+  // ELA (i=16)
+  "RG15", "--NONE--", "--NONE--",
+  // VIGIL (i=17)
+  "C75 Auto", "SMG-12", "--NONE--",
+  // MAESTRO (i=18)
+  "Keratos .357", "Bailiff 410", "--NONE--",
+  // ALIBI (i=19)
+  "Keratos .357", "Bailiff 410", "--NONE--",
+  // CLASH (i=20)
+  "P-10C", "SPSMG9", "Super Shorty",
+  // KAID (i=21)
+  ".44 Mag Semi-Auto", "LFP586", "--NONE--",
+  // MOZZIE (i=22)
+  "SDP 9mm", "--NONE--", "--NONE--",
+  // WARDEN (i=23)
+  "P-10C", "SMG-12", "--NONE--",
+  // GOYO (i=24)
+  "P229", "--NONE--", "--NONE--",
+  // WAMAI (i=25)
+  "P12", "Keratos .357", "--NONE--",
+  // ORYX (i=26)
+  "Bailiff 410", "USP40", "--NONE--",
+  // MELUSI (i=27)
+  "ITA12S", "RG15", "--NONE--",
+  // ARUNI (i=28)
+  "PRB92", "--NONE--", "--NONE--",
+  // THUNDERBIRD (i=29)
+  "Bearing 9", "Q-929", "ITA12S",
+  // THORN (i=30)
+  "1911 TACOPS", "C75 Auto", "--NONE--",
+  // AZAMI (i=31)
+  "D-50", "--NONE--", "--NONE--",
+  // SOLIS (i=32)
+  "SMG-11", "--NONE--", "--NONE--",
+  // FENRIR (i=33)
+  "5.7 USG", "Bailiff 410", "--NONE--",
+  // TUBARÃƒO (i=34)
+  "P226 MK 25", "--NONE--", "--NONE--",
+  // SENTRY (i=35)
+  "C75 Auto", "Super Shorty", "--NONE--",
+  // SKOPÃ“S (i=36) - NEW OPERATOR
+  "P229", "--NONE--", "--NONE--"
+ };
+ 
+
+ 
+
+ // Change all array sizes from 36 to 37
+ int defenderPrimaryVerticalRecoil[111];   // 37 * 3
+ int defenderPrimaryHorizontalRecoil[111];
+ int defenderSecondaryVerticalRecoil[111];
+ int defenderSecondaryHorizontalRecoil[111];
+ 
+
+ // Mod Names Array (Updated with new mods)
+ const string ModNames[] = {
+  "Rapid Fire", "Crouch Spam", "Shaik- Peek",
+  "Shot Abuse", "Jitter Mod", "Crouch Shot", "Hip Lean",
+  "Lean Spam", "PronePeek", "T-Bag"  // Added T-Bag
+ };
+ 
+
+ // Weapon type names
+ const string WeaponTypes[] = {
+  "PRIMARY", "SECONDARY"
+ };
+ 
+
+ // -----------------------------
+ // Strings for UI
+ // -----------------------------
+ const string Greeting = "R6S Script";
+ const string ANTI = "Anti Recoil";
+ const string OFF = "OFF";
+ const string ON = "ON";
+ const string AD = "EDIT";
+ const string VERT = "VERTICAL";
+ const string HORZ = "HORIZONTAL";
+ const string DZ = "DEADZONE";
+ const string DEF = "DEFENDERS";
+ const string MODS = "MODS";
+ const string OPER = "OPERATOR";
+ const string OPERATORS = "OPERATORS";
+ const string ATTACKERS = "ATTACKERS";
+ const string SWITCH_SCRIPT = "SWITCH SCRIPT";
+ const string SWITCH_TO = "SWITCH TO:";
+ const string SWITCH_PROMPT = "A/X to Switch";
+ const string Select = "Select";
+ const string RecoilMode = "Recoil Mode";
+ const string SPEED = "SPEED";
+ const string MODE = "MODE";
+ const string HOLD = "HOLD CROUCH";
+ const string ADSFIRE = "ADS+FIRE";
+ const string FRI = "FIRE ONLY";
+ const string ALWAYS = "ALWAYS";
+ const string DELAY = "DELAY";
+ const string STRENGTH = "STRENGTH";
+ const string NOADJUST = "NO ADJUSTMENTS";
+ const string CREDIT = "By WholelyScript";
+ const string VERSION = "R6S Script v1.0";
+ const string MODSON = "Mods: ON";
+ const string MODSOFF = "Mods: OFF";
+ const string Weapon = "Weapon";
+ const string FIXED = "NON-ADJUSTABLE";
+ const string Numbers[] = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+ const string EditPrompt = "A/X to Edit";
+ const string ONFIRE = "ON FIRE";
+ const string ACTIVATIONMODE = "ACTIVATION";
+ const string Crouch = "Crouch:";
+ const string OPTION = "OPTION";
+ const string ENABLED = "ENABLED";
+ const string DISABLED = "DISABLED";
+ 
+
+ // -----------------------------
+ // Combos (Macros)
+ // -----------------------------
+ combo RapidFire {
+  if (rapidFireState == 0) {
+  set_val(Fire, 0);
+  rapidFireState = 1;
+  } else {
+  set_val(Fire, 100);
+  rapidFireState = 0;
+  }
+ }
+ 
+
+ combo CrouchSpam {
+  if (crouchSpamState == 0) {
+  set_val(CrouchButton, 100);
+  crouchSpamState = 1;
+  } else {
+  set_val(CrouchButton, 0);
+  crouchSpamState = 0;
+  }
+ }
+ 
+
+ // NEW: tBag combo
+ combo TBag {
+  if (tBagState == 0) {
+  set_val(CrouchButton, 100);
+  tBagState = 1;
+  } else {
+  set_val(CrouchButton, 0);
+  tBagState = 0;
+  }
+ }
+ 
+
+combo ShaikoCrouchCombo {
+ // Crouch at start if enabled
+    if (ShaiikoCrouchToggle) {
+        set_val(CrouchButton, 100);
+    }
+    wait(50);  
+
+    if (ShaiikoCrouchToggle) {
+        set_val(CrouchButton, 0);
+    }
+    wait(150);
+
+    if (ShaiikoCrouchToggle) {
+        set_val(CrouchButton, 100);
+    }
+    wait(50);
+
+    if (ShaiikoCrouchToggle) {
+        set_val(CrouchButton, 0);
+    }
+}
+ 
+combo LeanOnceLS {
+    // LEFT LEAN = nudge left
+    if(abs(get_val(XB1_LX)) < 20) {
+        set_val(XB1_LX, -60);
+    }
+    set_val(XB1_RS, 100);       // Melee (left lean input)
+    wait(shaiikoPeekDelay);
+
+    set_val(XB1_LS, 100);       // Sprint
+
+    // RIGHT LEAN = nudge right
+    if(abs(get_val(XB1_LX)) < 20) {
+        set_val(XB1_LX, 60);
+    }
+    set_val(XB1_RS, 100);       // Melee
+    wait(shaiikoPeekDelay);
+
+    set_val(XB1_LS, 100);       // Sprint
+
+    // RIGHT LEAN = nudge right again
+    if(abs(get_val(XB1_LX)) < 20) {
+        set_val(XB1_LX, 60);
+    }
+    set_val(XB1_RS, 100);       // Melee
+    wait(10);
+
+    set_val(XB1_LS, 100);       // Sprint
+    
+    wait(200); // Final delay
+
+    // Explicit crouch release to ensure standing up
+    if (ShaiikoCrouchToggle) {
+        set_val(CrouchButton, 0);
+    }
+}
+
+combo LeanOnceRS {
+    // RIGHT LEAN = nudge right (was left)
+    if(abs(get_val(XB1_LX)) < 20) {
+        set_val(XB1_LX, 60); // inverted from -60
+    }
+    set_val(XB1_LS, 100);       // Melee (right lean input)
+    wait(shaiikoPeekDelay);
+
+    set_val(XB1_RS, 100);       // Sprint (was LS)
+
+    // LEFT LEAN = nudge left (was right)
+    if(abs(get_val(XB1_LX)) < 20) {
+        set_val(XB1_LX, -60); // inverted from 60
+    }
+    set_val(XB1_LS, 100);       // Melee
+    wait(shaiikoPeekDelay);
+
+    set_val(XB1_RS, 100);       // Sprint (was LS)
+
+    // LEFT LEAN = nudge left again (was right again)
+    if(abs(get_val(XB1_LX)) < 20) {
+        set_val(XB1_LX, -60); // inverted from 60
+    }
+    set_val(XB1_LS, 100);       // Melee
+    wait(10);
+
+    set_val(XB1_RS, 100);       // Sprint (was LS)
+    
+    wait(200); // Final delay
+
+    // Explicit crouch release to ensure standing up
+    if (ShaiikoCrouchToggle) {
+        set_val(CrouchButton, 0);
+    }
+}
+ 
+
+ combo ShotAbuseRelease {
+  set_val(ADS, 0);
+  wait(aimOutDelay);
+  set_val(ADS, 100);
+ }
+ 
+
+ combo RSJitter {
+  jitterX = random(-rsJitterStrength, rsJitterStrength);
+  jitterY = random(-rsJitterStrength, rsJitterStrength);
+ 
+
+  set_val(XB1_RX, jitterX);
+  set_val(XB1_RY, jitterY);
+ 
+
+  wait(jitterDelay);
+ }
+ 
+
+ combo HipLeft {
+  set_val(ADS, 100);
+  wait(HipLeanDelay);
+  set_val(ADS, 100);
+  set_val(LeanLeft, 100);
+  wait(100);
+  set_val(ADS, 0);
+  set_val(LeanLeft, 0);
+ }
+ 
+
+ int flickerToggle = FALSE;
+ int flickerTimer = 0;
+ 
+
+ combo HipRight {
+  set_val(ADS, 100);
+  wait(HipLeanDelay);
+  set_val(ADS, 100);
+  set_val(LeanRight, 100);
+  wait(120);
+  set_val(ADS, 0);
+  set_val(LeanRight, 0);
+ }
+ 
+
+ // Lean Spam Combo
+ combo LeanSpam {
+  set_val(LeanLeft, 100);
+  wait(100);
+  set_val(LeanLeft, 0);
+  set_val(LeanRight, 100);
+  wait(100);
+  set_val(LeanRight, 0);
+ }
+ 
+
+ combo PronePeekCombo {
+  crouchOverride = TRUE;
+  set_val(CrouchButton, 100);
+  wait(500);
+  set_val(CrouchButton, 0);
+ }
+ 
+
+ // Stand up after firing combo
+ combo StandUpCombo {
+  crouchOverride = TRUE;
+  set_val(CrouchButton, 100);
+  wait(500);
+  set_val(CrouchButton, 0);
+ }
+ 
+
+ int currSwitchButton;
+ 
+
+ // -----------------------------
+ // Main Loop
+ // -----------------------------
+ main {
+ 
+
+  if (!inMenu) {
+  antiRecoilAdjust = FALSE;
+  antiRecoilAdjustMode = 1;
+  sideSelected = FALSE;
+  WeaponSelectMode = FALSE;
+  WeaponSpecificSelectMode = FALSE;
+  
+  // Reset mod adjustment flags
+  rapidFireAdjust = FALSE;
+  crouchSpamAdjust = FALSE;
+  shaiikoPeekAdjust = FALSE;
+  shotAbuseAdjust = FALSE;
+  rsJitterAdjust = FALSE;
+  crouchShotAdjust = FALSE;
+  hipLeanAdjust = FALSE;
+  leanSpamAdjust = FALSE;
+  PronePeekAdjust = FALSE;
+  
+  currentModAdjustMode = 1;
+  crouchSpamAdjustMode = 1;
+  }
+  
+  currMenu  = get_val(XB1_MENU);
+  currLT = get_val(XB1_LT);
+  currB  = get_val(XB1_B);
+  currRight = get_val(XB1_RIGHT);
+  currLeft = get_val(XB1_LEFT);
+  currUp = get_val(XB1_UP);
+  currDown = get_val(XB1_DOWN);
+  currA  = get_val(XB1_A);
+  
+  // Track Weapon switching (only when not in menu)
+  if (!inMenu) {
+  currSwitchButton = get_val(Switch);
+  
+  // Y button just pressed - start timer
+  if (currSwitchButton && !prevSwitchButton) {
+  switchPressTime = 0;
+  switchHeld = TRUE;
+  }
+  
+  // Y button held - count time
+  if (currSwitchButton && switchHeld) {
+  switchPressTime += 10; // Time in milliseconds (10ms per loop)
+  }
+  
+  // Y button released - check if it was a short press
+  if (!currSwitchButton && prevSwitchButton && switchHeld) {
+  if (switchPressTime < 150) {
+  // Short press - switch weapon
+  if (currentWeapon == 1) {
+  currentWeapon = 2; // Switch to secondary
+  } else {
+  currentWeapon = 1; // Switch to primary
+  }
+  }
+  switchHeld = FALSE; // Reset hold state
+  }
+  
+  prevSwitchButton = currSwitchButton;
+  }
+  
+  // Toggle menu with Menu + LT
+  if (currMenu && currLT && (!prevMenu || !prevLT)) {
+  inMenu = !inMenu;
+  msTimer = 0;
+  ignoreInputTimer = 20;
+  if (inMenu) {
+  menuMode = 1;
+  sideSelected = FALSE;
+  WeaponSelectMode = FALSE;
+  WeaponSpecificSelectMode = FALSE;
+  }
+  }
+  
+  // Exit menu/adjustment with B
+  if (inMenu) {
+  if (antiRecoilAdjust && currB && !prevB) {
+  if (WeaponSpecificSelectMode) {
+  WeaponSpecificSelectMode = FALSE;
+  } else if (WeaponSelectMode) {
+  WeaponSelectMode = FALSE;
+  } else {
+  antiRecoilAdjust = FALSE;
+  }
+  } else if (rapidFireAdjust && currB && !prevB) {
+  rapidFireAdjust = FALSE;
+  } else if (crouchSpamAdjust && currB && !prevB) {
+  crouchSpamAdjust = FALSE;
+  } else if (shaiikoPeekAdjust && currB && !prevB) {
+  shaiikoPeekAdjust = FALSE;
+  } else if (shotAbuseAdjust && currB && !prevB) {
+  shotAbuseAdjust = FALSE;
+  } else if (rsJitterAdjust && currB && !prevB) {
+  rsJitterAdjust = FALSE;
+  } else if (crouchShotAdjust && currB && !prevB) {
+  crouchShotAdjust = FALSE;
+  } else if (hipLeanAdjust && currB && !prevB) {
+  hipLeanAdjust = FALSE;
+  } else if (leanSpamAdjust && currB && !prevB) {
+  leanSpamAdjust = FALSE;
+  } else if (PronePeekAdjust && currB && !prevB) {
+  PronePeekAdjust = FALSE;
+  }else if (!antiRecoilAdjust && !rapidFireAdjust && !crouchSpamAdjust && !shaiikoPeekAdjust &&
+  !shotAbuseAdjust && !rsJitterAdjust && !crouchShotAdjust && !hipLeanAdjust &&
+  !leanSpamAdjust && !PronePeekAdjust && currB && !prevB) {
+ 
+
+  // If in script switch menu, pressing B goes back to side selection
+  if (menuMode == 5 && sideSelected) {
+  sideSelected = FALSE;  // Go back to side selection
+  }
+  // If in any other menu, pressing B goes back to side selection
+  else if (menuMode == 3 && sideSelected) {
+  sideSelected = FALSE;
+  } else {
+  inMenu = 0;
+  msTimer = 0;
+  ignoreInputTimer = 20;
+  }
+  }
+  }
+  
+  if (inMenu) {
+  block_all_inputs();
+  
+  if (!antiRecoilAdjust && !rapidFireAdjust && !crouchSpamAdjust && !shaiikoPeekAdjust &&
+  !shotAbuseAdjust && !rsJitterAdjust && !crouchShotAdjust && !hipLeanAdjust &&
+  !leanSpamAdjust && !PronePeekAdjust && !sideSelected) {
+  if (currRight && !prevRight) { menuMode = min(5, menuMode + 1); } //Max 5 Because of added switched
+  if (currLeft && !prevLeft) { menuMode = max(1, menuMode - 1); }
+  }
+  
+  // Main Menu Mode - Side Selection (Operators or Mods)
+  if (menuMode == 1) {
+  if (!sideSelected) {
+  if (currUp && !prevUp) {
+  currentSide = (currentSide - 1);
+  if (currentSide < 1) currentSide = 3;  // Check added Switch
+  }
+  if (currDown && !prevDown) {
+  currentSide = (currentSide % 3) + 1; //Check added switch
+  }
+  
+  cls_oled(0);
+  print(15, 0, OLED_FONT_MEDIUM, OLED_WHITE, Select[0]);
+  
+  if (currentSide == 1) {
+  print(25, 30, OLED_FONT_MEDIUM, OLED_WHITE, OPERATORS[0]);
+  } else if (currentSide == 2) {
+  print(25, 30, OLED_FONT_MEDIUM, OLED_WHITE, MODS[0]);
+  }
+  
+  else if (currentSide == 3) {
+  print(10, 30, OLED_FONT_SMALL, OLED_WHITE, SWITCH_SCRIPT[0]);
+  }
+  
+  
+  if (currA && !prevA) {
+  sideSelected = TRUE;
+  
+  if (currentSide == 1) {
+  menuMode = 3;
+  } else if (currentSide == 2) {
+  menuMode = 4;
+  } //Check added switch
+  else if (currentSide == 3) {
+  menuMode = 5;
+  }
+  }
+  }
+  
+  }
+ 
+
+  // Menu Mode 3 - Operator Selection and Recoil Adjustment
+  else if (menuMode == 3 && currentSide == 1) {
+  if (sideSelected) {
+  if (!antiRecoilAdjust && !WeaponSelectMode && !WeaponSpecificSelectMode) {
+  cls_oled(0);
+  
+ 
+
+ if (currUp && !prevUp) {
+  currentDefender = (currentDefender - 1 + 36) % 36;
+  currentPrimaryWeapon = 0;
+  currentSecondaryWeapon = 0;
+  currentWeapon = 1; // Reset to primary weapon
+ }
+ if (currDown && !prevDown) {
+  currentDefender = (currentDefender + 1) % 36;
+  currentPrimaryWeapon = 0;
+  currentSecondaryWeapon = 0;
+  currentWeapon = 1; // Reset to primary weapon
+ }
+ 
+
+  print(5, 0, OLED_FONT_MEDIUM, OLED_WHITE, DEF[0]);
+  print(5, 30, OLED_FONT_MEDIUM, OLED_WHITE, DefenderNames[currentDefender]);
+  print(5, 50, OLED_FONT_SMALL, OLED_WHITE, EditPrompt[0]);
+  
+ 
+
+  if (currA && !prevA) {
+  WeaponSelectMode = TRUE;
+  }
+  }
+  
+  // Weapon type selection (primary/secondary)
+  else if (WeaponSelectMode && !WeaponSpecificSelectMode && !antiRecoilAdjust) {
+  cls_oled(0);
+  
+  print(5, 0, OLED_FONT_SMALL, OLED_WHITE, DefenderNames[currentDefender]);
+  
+  print(5, 16, OLED_FONT_SMALL, OLED_WHITE, Select[0]);
+  print(55, 16, OLED_FONT_SMALL, OLED_WHITE, Weapon[0]);
+  
+  // Toggle between primary/secondary
+  if ((currUp && !prevUp) || (currDown && !prevDown)) {
+  if (currentWeapon == 1) {
+  currentWeapon = 2;
+  } else {
+  currentWeapon = 1;
+  }
+  }
+  
+  // Display current weapon type selection
+  print(25, 30, OLED_FONT_MEDIUM, OLED_WHITE, WeaponTypes[currentWeapon-1]);
+  print(5, 50, OLED_FONT_SMALL, OLED_WHITE, EditPrompt[0]);
+  
+ 
+
+  if (currA && !prevA) {
+  WeaponSpecificSelectMode = TRUE;
+  }
+  }
+  // Specific weapon selection from operator's loadout
+  else if (WeaponSpecificSelectMode && !antiRecoilAdjust) {
+  cls_oled(0);
+  
+  print(5, 0, OLED_FONT_SMALL, OLED_WHITE, DefenderNames[currentDefender]);
+  
+  print(5, 16, OLED_FONT_SMALL, OLED_WHITE, Select[0]);
+  print(55, 16, OLED_FONT_SMALL, OLED_WHITE, WeaponTypes[currentWeapon-1]);
+  
+  // Display available weapons for current selection
+  if (currentWeapon == 1) {
+  // Primary weapons
+  if (currUp && !prevUp) {
+  currentPrimaryWeapon = (currentPrimaryWeapon - 1 + 3) % 3;
+  }
+  if (currDown && !prevDown) {
+  currentPrimaryWeapon = (currentPrimaryWeapon + 1) % 3;
+  }
+  
+  print(5, 30, OLED_FONT_MEDIUM, OLED_WHITE, DefenderPrimaryWeapons[(currentDefender * 3) + currentPrimaryWeapon]);
+  } else {
+  // Secondary weapons
+  if (currUp && !prevUp) {
+  currentSecondaryWeapon = (currentSecondaryWeapon - 1 + 3) % 3;
+  }
+  if (currDown && !prevDown) {
+  currentSecondaryWeapon = (currentSecondaryWeapon + 1) % 3;
+  }
+  
+  print(5, 30, OLED_FONT_MEDIUM, OLED_WHITE, DefenderSecondaryWeapons[(currentDefender * 3) + currentSecondaryWeapon]);
+  }
+  
+  print(5, 50, OLED_FONT_SMALL, OLED_WHITE, EditPrompt[0]);
+  
+ 
+
+  if (currA && !prevA) {
+  antiRecoilAdjust = TRUE;
+  antiRecoilAdjustMode = 1;
+  }
+  }
+  else if (antiRecoilAdjust) {
+  // Recoil Adjustment Mode
+  if (currRight && !prevRight) {
+  antiRecoilAdjustMode = (antiRecoilAdjustMode % 3) + 1;
+  }
+  if (currLeft && !prevLeft) {
+  antiRecoilAdjustMode = (antiRecoilAdjustMode - 1);
+  if (antiRecoilAdjustMode < 1) antiRecoilAdjustMode = 3;
+  }
+  
+  // Vertical Recoil Adjustment
+  if (antiRecoilAdjustMode == 1) {
+  if (currUp && !adjustDelayActive) {
+  adjustType = 1;
+  if (currLT) adjustIncrement = 10;
+  else adjustIncrement = 1;
+  adjustDelayActive = TRUE; adjustDelayTimer = 20;
+  }
+  if (currDown && !adjustDelayActive) {
+  adjustType = 1;
+  if (currLT) adjustIncrement = -10;
+  else adjustIncrement = -1;
+  adjustDelayActive = TRUE; adjustDelayTimer = 20;
+  }
+  
+  cls_oled(0);
+  print(5, 0, OLED_FONT_SMALL, OLED_WHITE, DefenderNames[currentDefender]);
+  
+  // Display weapon name
+  if (currentWeapon == 1) {
+  print(10, 16, OLED_FONT_SMALL, OLED_WHITE, DefenderPrimaryWeapons[(currentDefender * 3) + currentPrimaryWeapon]);
+  } else {
+  print(10, 16, OLED_FONT_SMALL, OLED_WHITE, DefenderSecondaryWeapons[(currentDefender * 3) + currentSecondaryWeapon]);
+  }
+  
+  print(80, 16, OLED_FONT_SMALL, OLED_WHITE, AD[0]);
+  print(25, 30, OLED_FONT_MEDIUM, OLED_WHITE, VERT[0]);
+  
+  // Display the appropriate recoil value based on weapon and operator
+  if (currentWeapon == 1) {
+  drawBigNumber(defenderPrimaryVerticalRecoil[currentDefender * 3 + currentPrimaryWeapon], 49, 45);
+  } else {
+  drawBigNumber(defenderSecondaryVerticalRecoil[currentDefender * 3 + currentSecondaryWeapon], 49, 45);
+  }
+  }
+// Horizontal Recoil Adjustment
+else if (antiRecoilAdjustMode == 2) {
+if (currUp && !adjustDelayActive) {
+adjustType = 2;
+if (currLT) adjustIncrement = 10;
+else adjustIncrement = 1;
+adjustDelayActive = TRUE; adjustDelayTimer = 20;
+}
+if (currDown && !adjustDelayActive) {
+adjustType = 2;
+if (currLT) adjustIncrement = -10;
+else adjustIncrement = -1;
+adjustDelayActive = TRUE; adjustDelayTimer = 20;
+}
+
+cls_oled(0);
+print(5, 0, OLED_FONT_SMALL, OLED_WHITE, DefenderNames[currentDefender]);
+
+// Display weapon name
+if (currentWeapon == 1) {
+print(10, 16, OLED_FONT_SMALL, OLED_WHITE, DefenderPrimaryWeapons[(currentDefender * 3) + currentPrimaryWeapon]);
+} else {
+print(10, 16, OLED_FONT_SMALL, OLED_WHITE, DefenderSecondaryWeapons[(currentDefender * 3) + currentSecondaryWeapon]);
+}
+
+print(80, 16, OLED_FONT_SMALL, OLED_WHITE, AD[0]);
+print(15, 30, OLED_FONT_MEDIUM, OLED_WHITE, HORZ[0]);
+
+// Display the appropriate recoil value based on weapon and operator
+if (currentWeapon == 1) {
+drawBigNumber(defenderPrimaryHorizontalRecoil[currentDefender * 3 + currentPrimaryWeapon], 49, 45);
+} else {
+drawBigNumber(defenderSecondaryHorizontalRecoil[currentDefender * 3 + currentSecondaryWeapon], 49, 45);
+}
+}
+// Deadzone Adjustment
+else if (antiRecoilAdjustMode == 3) {
+if (currUp && !adjustDelayActive) {
+adjustType = 3;
+if (currLT) adjustIncrement = 5;
+else adjustIncrement = 1;
+adjustDelayActive = TRUE; adjustDelayTimer = 20;
+}
+if (currDown && !adjustDelayActive) {
+adjustType = 3;
+if (currLT) adjustIncrement = -5;
+else adjustIncrement = -1;
+adjustDelayActive = TRUE; adjustDelayTimer = 20;
+}
+
+cls_oled(0);
+print(5, 0, OLED_FONT_SMALL, OLED_WHITE, DefenderNames[currentDefender]);
+
+// Display weapon name
+if (currentWeapon == 1) {
+print(10, 16, OLED_FONT_SMALL, OLED_WHITE, DefenderPrimaryWeapons[(currentDefender * 3) + currentPrimaryWeapon]);
+} else {
+print(10, 16, OLED_FONT_SMALL, OLED_WHITE, DefenderSecondaryWeapons[(currentDefender * 3) + currentSecondaryWeapon]);
+}
+
+print(80, 16, OLED_FONT_SMALL, OLED_WHITE, AD[0]);
+print(20, 30, OLED_FONT_MEDIUM, OLED_WHITE, DZ[0]);
+drawBigNumber(deadzone, 49, 45);
+}
+}
+} else {
+menuMode = 1;
+}
+}
+// Menu Mode 4 - Mods Selection and Adjustment
+else if (menuMode == 4 && currentSide == 2) {
+if (sideSelected) {
+// Handle Rapid Fire
+if (currentModMode == 1) {
+if (!rapidFireAdjust) {
+if (currUp) RapidFireToggle = TRUE;
+if (currDown) RapidFireToggle = FALSE;
+cls_oled(0);
+print(5, 0, OLED_FONT_MEDIUM, OLED_WHITE, ModNames[0]);
+
+if (RapidFireToggle) {
+print(5, 20, OLED_FONT_MEDIUM, OLED_WHITE, ON[0]);
+} else {
+print(5, 20, OLED_FONT_MEDIUM, OLED_WHITE, OFF[0]);
+}
+
+print(5, 40, OLED_FONT_SMALL, OLED_WHITE, EditPrompt[0]);
+
+if (currA && !prevA) {
+rapidFireAdjust = TRUE;
+currentModAdjustMode = 1;
+}
+} else {
+if (currentModAdjustMode == 1) {
+if (currUp && !adjustDelayActive) {
+adjustType = 4;
+if (currLT) adjustIncrement = 5;
+else adjustIncrement = 1;
+adjustDelayActive = TRUE; adjustDelayTimer = 20;
+}
+if (currDown && !adjustDelayActive) {
+adjustType = 4;
+if (currLT) adjustIncrement = -5;
+else adjustIncrement = -1;
+adjustDelayActive = TRUE; adjustDelayTimer = 20;
+}
+cls_oled(0);
+print(40, 0, OLED_FONT_SMALL, OLED_WHITE, AD[0]);
+print(25, 16, OLED_FONT_MEDIUM, OLED_WHITE, SPEED[0]);
+drawBigNumber(rapidFireSpeed, 49, 35);
+}
+else if (currentModAdjustMode == 2) {
+if (currUp && !prevUp) rapidFireActivation = 1;
+if (currDown && !prevDown) rapidFireActivation = 2;
+
+cls_oled(0);
+print(40, 0, OLED_FONT_SMALL, OLED_WHITE, ACTIVATIONMODE[0]);
+if (rapidFireActivation == 1) {
+print(25, 25, OLED_FONT_MEDIUM, OLED_WHITE, ONFIRE[0]);
+} else {
+print(15, 25, OLED_FONT_MEDIUM, OLED_WHITE, ADSFIRE[0]);
+}
+}
+
+if (currRight && !prevRight) {
+currentModAdjustMode = (currentModAdjustMode % 2) + 1;
+}
+if (currLeft && !prevLeft) {
+currentModAdjustMode = currentModAdjustMode - 1;
+if (currentModAdjustMode < 1) currentModAdjustMode = 2;
+}
+}
+}
+
+// Handle Crouch Spam
+else if (currentModMode == 2) {
+if (!crouchSpamAdjust) {
+if (currUp) CrouchSpamToggle = TRUE;
+if (currDown) CrouchSpamToggle = FALSE;
+cls_oled(0);
+print(5, 0, OLED_FONT_MEDIUM, OLED_WHITE, ModNames[1]);
+if (CrouchSpamToggle) {
+print(5, 20, OLED_FONT_MEDIUM, OLED_WHITE, ON[0]);
+} else {
+print(5, 20, OLED_FONT_MEDIUM, OLED_WHITE, OFF[0]);
+}
+print(5, 40, OLED_FONT_SMALL, OLED_WHITE, EditPrompt[0]);
+if (currA && !prevA) {
+crouchSpamAdjust = TRUE;
+}
+} else {
+if (crouchSpamAdjustMode == 1) {
+if (currUp && !adjustDelayActive) {
+adjustType = 5;
+if (currLT) adjustIncrement = 5;
+else adjustIncrement = 1;
+adjustDelayActive = TRUE; adjustDelayTimer = 20;
+}
+if (currDown && !adjustDelayActive) {
+adjustType = 5;
+if (currLT) adjustIncrement = -5;
+else adjustIncrement = -1;
+adjustDelayActive = TRUE; adjustDelayTimer = 20;
+}
+cls_oled(0);
+print(40, 0, OLED_FONT_SMALL, OLED_WHITE, AD[0]);
+print(25, 16, OLED_FONT_MEDIUM, OLED_WHITE, SPEED[0]);
+drawBigNumber(crouchSpamSpeed, 49, 35);
+} else {
+if (currUp && !prevUp) {
+crouchSpamMode = min(4, crouchSpamMode + 1);
+}
+if (currDown && !prevDown) {
+crouchSpamMode = max(1, crouchSpamMode - 1);
+}
+
+cls_oled(0);
+print(40, 0, OLED_FONT_SMALL, OLED_WHITE, MODE[0]);
+if (crouchSpamMode == 1) {
+print(5, 20, OLED_FONT_MEDIUM, OLED_WHITE, HOLD[0]);
+} else if (crouchSpamMode == 2) {
+print(10, 16, OLED_FONT_MEDIUM, OLED_WHITE, ADSFIRE[0]);
+} else if (crouchSpamMode == 3) {
+print(15, 16, OLED_FONT_MEDIUM, OLED_WHITE, FRI[0]);
+} else if (crouchSpamMode == 4) {
+print(25, 16, OLED_FONT_MEDIUM, OLED_WHITE, ALWAYS[0]);
+}
+}
+
+if (currRight && !prevRight) {
+crouchSpamAdjustMode = 2;
+}
+if (currLeft && !prevLeft) {
+crouchSpamAdjustMode = 1;
+}
+}
+}
+// Handle Shaiiko Peek
+else if (currentModMode == 3) {
+if (!shaiikoPeekAdjust) {
+if (currUp) ShaiikoPeekToggle = TRUE;
+if (currDown) ShaiikoPeekToggle = FALSE;
+cls_oled(0);
+print(5, 0, OLED_FONT_MEDIUM, OLED_WHITE, ModNames[2]);
+if (ShaiikoPeekToggle) {
+print(5, 20, OLED_FONT_MEDIUM, OLED_WHITE, ON[0]);
+} else {
+print(5, 20, OLED_FONT_MEDIUM, OLED_WHITE, OFF[0]);
+}
+// Add crouch toggle display
+print(5, 40, OLED_FONT_SMALL, OLED_WHITE, Crouch[0]);
+if (ShaiikoCrouchToggle) {
+print(60, 40, OLED_FONT_SMALL, OLED_WHITE, ON[0]);
+} else {
+print(60, 40, OLED_FONT_SMALL, OLED_WHITE, OFF[0]);
+}
+print(5, 55, OLED_FONT_SMALL, OLED_WHITE, EditPrompt[0]);
+if (currA && !prevA) shaiikoPeekAdjust = TRUE;
+} else {
+if (currentModAdjustMode == 1) {
+if (currUp && !adjustDelayActive) {
+adjustType = 6;
+if (currLT) adjustIncrement = 10;
+else adjustIncrement = 1;
+adjustDelayActive = TRUE; adjustDelayTimer = 20;
+}
+if (currDown && !adjustDelayActive) {
+adjustType = 6;
+if (currLT) adjustIncrement = -10;
+else adjustIncrement = -1;
+adjustDelayActive = TRUE; adjustDelayTimer = 20;
+}
+cls_oled(0);
+print(40, 0, OLED_FONT_SMALL, OLED_WHITE, AD[0]);
+print(25, 16, OLED_FONT_MEDIUM, OLED_WHITE, DELAY[0]);
+drawBigNumber(shaiikoPeekDelay, 49, 35);
+} else {
+if (currUp && !prevUp) ShaiikoCrouchToggle = TRUE;
+if (currDown && !prevDown) ShaiikoCrouchToggle = FALSE;
+cls_oled(0);
+print(40, 0, OLED_FONT_SMALL, OLED_WHITE, Crouch[0]);
+print(25, 20, OLED_FONT_MEDIUM, OLED_WHITE, OPTION[0]);
+if (ShaiikoCrouchToggle) {
+print(30, 40, OLED_FONT_MEDIUM, OLED_WHITE, ENABLED[0]);
+} else {
+print(30, 40, OLED_FONT_MEDIUM, OLED_WHITE, DISABLED[0]);
+}
+}
+
+if (currRight && !prevRight) {
+currentModAdjustMode = (currentModAdjustMode % 2) + 1;
+}
+if (currLeft && !prevLeft) {
+currentModAdjustMode = currentModAdjustMode - 1;
+if (currentModAdjustMode < 1) currentModAdjustMode = 2;
+}
+}
+}
+// Handle Shot Abuse
+else if (currentModMode == 4) {
+if (!shotAbuseAdjust) {
+if (currUp) ShotAbuseToggle = TRUE;
+if (currDown) ShotAbuseToggle = FALSE;
+cls_oled(0);
+print(5, 0, OLED_FONT_MEDIUM, OLED_WHITE, ModNames[3]);
+if (ShotAbuseToggle) {
+print(5, 20, OLED_FONT_MEDIUM, OLED_WHITE, ON[0]);
+} else {
+print(5, 20, OLED_FONT_MEDIUM, OLED_WHITE, OFF[0]);
+}
+print(5, 40, OLED_FONT_SMALL, OLED_WHITE, EditPrompt[0]);
+if (currA && !prevA) shotAbuseAdjust = TRUE;
+} else {
+if (currUp && !adjustDelayActive) {
+adjustType = 7;
+if (currLT) adjustIncrement = 5;
+else adjustIncrement = 1;
+adjustDelayActive = TRUE; adjustDelayTimer = 20;
+}
+if (currDown && !adjustDelayActive) {
+adjustType = 7;
+if (currLT) adjustIncrement = -5;
+else adjustIncrement = -1;
+adjustDelayActive = TRUE; adjustDelayTimer = 20;
+}
+cls_oled(0);
+print(40, 0, OLED_FONT_SMALL, OLED_WHITE, AD[0]);
+print(25, 16, OLED_FONT_MEDIUM, OLED_WHITE, DELAY[0]);
+drawBigNumber(aimOutDelay, 49, 35);
+}
+}
+// Handle Jitter Mod
+else if (currentModMode == 5) {
+if (!rsJitterAdjust) {
+if (currUp) RSJitterToggle = TRUE;
+if (currDown) RSJitterToggle = FALSE;
+cls_oled(0);
+print(5, 0, OLED_FONT_MEDIUM, OLED_WHITE, ModNames[4]);
+if (RSJitterToggle) {
+print(5, 20, OLED_FONT_MEDIUM, OLED_WHITE, ON[0]);
+} else {
+print(5, 20, OLED_FONT_MEDIUM, OLED_WHITE, OFF[0]);
+}
+print(5, 40, OLED_FONT_SMALL, OLED_WHITE, EditPrompt[0]);
+if (currA && !prevA) rsJitterAdjust = TRUE;
+} else {
+if (currUp && !adjustDelayActive) {
+adjustType = 8;
+if (currLT) adjustIncrement = 10;
+else adjustIncrement = 1;
+adjustDelayActive = TRUE; adjustDelayTimer = 20;
+}
+if (currDown && !adjustDelayActive) {
+adjustType = 8;
+if (currLT) adjustIncrement = -10;
+else adjustIncrement = -1;
+adjustDelayActive = TRUE; adjustDelayTimer = 20;
+}
+cls_oled(0);
+print(40, 0, OLED_FONT_SMALL, OLED_WHITE, AD[0]);
+print(15, 16, OLED_FONT_MEDIUM, OLED_WHITE, STRENGTH[0]);
+drawBigNumber(rsJitterStrength, 49, 35);
+}
+}
+// Handle Crouch Shot
+else if (currentModMode == 6) {
+if (!crouchShotAdjust) {
+if (currUp) CrouchShotToggle = TRUE;
+if (currDown) CrouchShotToggle = FALSE;
+cls_oled(0);
+print(5, 0, OLED_FONT_MEDIUM, OLED_WHITE, ModNames[5]);
+if (CrouchShotToggle) {
+print(5, 20, OLED_FONT_MEDIUM, OLED_WHITE, ON[0]);
+} else {
+print(5, 20, OLED_FONT_MEDIUM, OLED_WHITE, OFF[0]);
+}
+print(5, 40, OLED_FONT_SMALL, OLED_WHITE, EditPrompt[0]);
+if (currA && !prevA) {
+crouchShotAdjust = TRUE;
+}
+} else {
+cls_oled(0);
+print(20, 25, OLED_FONT_SMALL, OLED_WHITE, NOADJUST[0]);
+}
+}
+// Handle Hip Lean
+else if (currentModMode == 7) {
+if (!hipLeanAdjust) {
+if (currUp) HipLeanToggle = TRUE;
+if (currDown) HipLeanToggle = FALSE;
+cls_oled(0);
+print(5, 0, OLED_FONT_MEDIUM, OLED_WHITE, ModNames[6]);
+if (HipLeanToggle) {
+print(5, 20, OLED_FONT_MEDIUM, OLED_WHITE, ON[0]);
+} else {
+print(5, 20, OLED_FONT_MEDIUM, OLED_WHITE, OFF[0]);
+}
+print(5, 40, OLED_FONT_SMALL, OLED_WHITE, EditPrompt[0]);
+if (currA && !prevA) {
+hipLeanAdjust = TRUE;
+}
+} else {
+cls_oled(0);
+print(20, 25, OLED_FONT_SMALL, OLED_WHITE, NOADJUST[0]);
+}
+}
+// Handle Lean Spam
+else if (currentModMode == 8) {
+if (!leanSpamAdjust) {
+if (currUp) LeanSpamToggle = TRUE;
+if (currDown) LeanSpamToggle = FALSE;
+cls_oled(0);
+print(5, 0, OLED_FONT_MEDIUM, OLED_WHITE, ModNames[7]);
+if (LeanSpamToggle) {
+print(5, 20, OLED_FONT_MEDIUM, OLED_WHITE, ON[0]);
+} else {
+print(5, 20, OLED_FONT_MEDIUM, OLED_WHITE, OFF[0]);
+}
+print(5, 40, OLED_FONT_SMALL, OLED_WHITE, EditPrompt[0]);
+if (currA && !prevA) {
+leanSpamAdjust = TRUE;
+}
+} else {
+if (currUp && !adjustDelayActive) {
+adjustType = 9;
+if (currLT) adjustIncrement = 5;
+else adjustIncrement = 1;
+adjustDelayActive = TRUE; adjustDelayTimer = 20;
+}
+if (currDown && !adjustDelayActive) {
+adjustType = 9;
+if (currLT) adjustIncrement = -5;
+else adjustIncrement = -1;
+adjustDelayActive = TRUE; adjustDelayTimer = 20;
+}
+cls_oled(0);
+print(40, 0, OLED_FONT_SMALL, OLED_WHITE, AD[0]);
+print(25, 16, OLED_FONT_MEDIUM, OLED_WHITE, SPEED[0]);
+drawBigNumber(leanSpamSpeed, 49, 35);
+}
+}
+// Handle PronePeek
+else if (currentModMode == 9) {
+if (!PronePeekAdjust) {
+if (currUp) PronePeekToggle = TRUE;
+if (currDown) PronePeekToggle = FALSE;
+cls_oled(0);
+print(5, 0, OLED_FONT_MEDIUM, OLED_WHITE, ModNames[8]);
+if (PronePeekToggle) {
+print(5, 20, OLED_FONT_MEDIUM, OLED_WHITE, ON[0]);
+} else {
+print(5, 20, OLED_FONT_MEDIUM, OLED_WHITE, OFF[0]);
+}
+print(5, 40, OLED_FONT_SMALL, OLED_WHITE, EditPrompt[0]);
+if (currA && !prevA) {
+PronePeekAdjust = TRUE;
+}
+} else {
+if (currUp && !adjustDelayActive) {
+adjustType = 10;
+if (currLT) adjustIncrement = 10;
+else adjustIncrement = 5;
+adjustDelayActive = TRUE; adjustDelayTimer = 20;
+}
+if (currDown && !adjustDelayActive) {
+adjustType = 10;
+if (currLT) adjustIncrement = -10;
+else adjustIncrement = -5;
+adjustDelayActive = TRUE; adjustDelayTimer = 20;
+}
+cls_oled(0);
+print(40, 0, OLED_FONT_SMALL, OLED_WHITE, AD[0]);
+print(25, 16, OLED_FONT_MEDIUM, OLED_WHITE, DELAY[0]);
+drawBigNumber(PronePeekDelay, 49, 35);
+}
+}
+// Handle T-Bag
+else if (currentModMode == 10) {
+if (currUp) TBagToggle = TRUE;
+if (currDown) TBagToggle = FALSE;
+cls_oled(0);
+print(5, 0, OLED_FONT_MEDIUM, OLED_WHITE, ModNames[9]);
+if (TBagToggle) {
+print(5, 20, OLED_FONT_MEDIUM, OLED_WHITE, ON[0]);
+} else {
+print(5, 20, OLED_FONT_MEDIUM, OLED_WHITE, OFF[0]);
+}
+print(5, 40, OLED_FONT_SMALL, OLED_WHITE, FIXED[0]);
+}
+
+// Navigate between mod options when not in adjustment mode
+if (!rapidFireAdjust && !crouchSpamAdjust && !shaiikoPeekAdjust &&
+!shotAbuseAdjust && !rsJitterAdjust && !crouchShotAdjust && !hipLeanAdjust &&
+!leanSpamAdjust && !PronePeekAdjust) {
+
+if (currRight && !prevRight) {
+currentModMode = (currentModMode % 10) + 1;
+}
+if (currLeft && !prevLeft) {
+currentModMode = currentModMode - 1;
+if (currentModMode < 1) currentModMode = 10;
+}
+}
+} else {
+menuMode = 1;
+}
+}
+// Menu Mode 5 - Script Switching
+else if (menuMode == 5 && currentSide == 3) {
+if (sideSelected) {
+cls_oled(0);
+print(5, 0, OLED_FONT_MEDIUM, OLED_WHITE, SWITCH_TO[0]);
+if (currentScript == 2) {
+// Currently on Defenders, show option to switch to Attackers
+print(5, 20, OLED_FONT_MEDIUM, OLED_WHITE, ATTACKERS[0]);
+print(5, 40, OLED_FONT_SMALL, OLED_WHITE, SWITCH_PROMPT[0]);
+
+if (currA && !prevA) {
+// Switch to attackers script
+load_slot(1); // Assuming attackers script is in slot 1
+}
+} else {
+// Currently on Attackers, show option to switch to Defenders
+print(5, 20, OLED_FONT_MEDIUM, OLED_WHITE, DEF[0]);
+print(5, 40, OLED_FONT_SMALL, OLED_WHITE, SWITCH_PROMPT[0]);
+
+if (currA && !prevA) {
+// Switch to defenders script
+load_slot(2); // Assuming defenders script is in slot 2
+}
+}
+} else {
+menuMode = 1;
+}
+}
+// Menu Mode 4 - Global Settings
+else if (menuMode == 4) {
+cls_oled(0);
+print(5, 0, OLED_FONT_SMALL, OLED_WHITE, CREDIT[0]);
+print(10, 30, OLED_FONT_SMALL, OLED_WHITE, VERSION[0]);
+}
+} else {
+// Flicker timer
+if (msTimer >= 180000) {
+flickerTimer += 10;
+
+if (flickerTimer >= 1) {
+flickerToggle = !flickerToggle;
+flickerTimer = 0;
+}
+
+if (flickerToggle) {
+cls_oled(0);
+} else {
+cls_oled(0);
+print(5, 5, OLED_FONT_MEDIUM, OLED_WHITE, DefenderNames[currentDefender]);
+
+// Display weapon name based on current selection
+if (currentWeapon == 1) {
+print(5, 25, OLED_FONT_MEDIUM, OLED_WHITE, DefenderPrimaryWeapons[(currentDefender * 3) + currentPrimaryWeapon]);
+} else {
+print(5, 25, OLED_FONT_MEDIUM, OLED_WHITE, DefenderSecondaryWeapons[(currentDefender * 3) + currentSecondaryWeapon]);
+}
+
+if (ModToggle) {
+print(5, 44, OLED_FONT_MEDIUM, OLED_WHITE, MODSON[0]);
+} else {
+print(5, 44, OLED_FONT_MEDIUM, OLED_WHITE, MODSOFF[0]);
+}
+}
+} else {
+msTimer += 10;
+cls_oled(0);
+print(5, 5, OLED_FONT_MEDIUM, OLED_WHITE, DefenderNames[currentDefender]);
+
+// Display weapon name based on current selection
+if (currentWeapon == 1) {
+print(5, 25, OLED_FONT_MEDIUM, OLED_WHITE, DefenderPrimaryWeapons[(currentDefender * 3) + currentPrimaryWeapon]);
+} else {
+print(5, 25, OLED_FONT_MEDIUM, OLED_WHITE, DefenderSecondaryWeapons[(currentDefender * 3) + currentSecondaryWeapon]);
+}
+
+if (ModToggle) {
+print(5, 44, OLED_FONT_MEDIUM, OLED_WHITE, MODSON[0]);
+} else {
+print(5, 44, OLED_FONT_MEDIUM, OLED_WHITE, MODSOFF[0]);
+}
+}
+
+// Toggle all mods with View + LT
+if (get_val(XB1_VIEW) && get_val(XB1_LT)) {
+if (!lastButtonState && !togglePressed) {
+ModToggle = !ModToggle;
+togglePressed = TRUE;
+msTimer = 0;
+}
+lastButtonState = TRUE;
+} else {
+lastButtonState = FALSE;
+togglePressed = FALSE;
+}
+
+// LED indicators
+if (ModToggle) {
+set_led(LED_1, 3);
+set_led(LED_2, 3);
+set_led(LED_3, 0);
+} else {
+set_led(LED_1, 0);
+set_led(LED_2, 3);
+set_led(LED_3, 0);
+}
+
+if (ignoreInputTimer > 0) ignoreInputTimer -= 10;
+else {
+// Apply recoil compensation based on the selected operator and weapon
+if (ModToggle && get_val(XB1_LT) && get_val(XB1_RT)) {
+ry = get_val(XB1_RY);
+rx = get_val(XB1_RX);
+
+// Apply deadzone
+if (abs(ry) < deadzone) ry = 0;
+if (abs(rx) < deadzone) rx = 0;
+
+// Apply the recoil compensation based on current weapon and operator
+if (currentWeapon == 1) {
+// Primary Weapon
+set_val(XB1_RY, clamp(ry + defenderPrimaryVerticalRecoil[currentDefender * 3 + currentPrimaryWeapon], -100, 100));
+set_val(XB1_RX, clamp(rx + defenderPrimaryHorizontalRecoil[currentDefender * 3 + currentPrimaryWeapon], -100, 100));
+} else {
+// Secondary Weapon
+set_val(XB1_RY, clamp(ry + defenderSecondaryVerticalRecoil[currentDefender * 3 + currentSecondaryWeapon], -100, 100));
+set_val(XB1_RX, clamp(rx + defenderSecondaryHorizontalRecoil[currentDefender * 3 + currentSecondaryWeapon], -100, 100));
+}
+}
+
+// Rapid Fire
+if (ModToggle && RapidFireToggle) {
+// Check if current weapon is single-shot
+
+if (currentWeapon == 1) {
+weaponToCheck = currentPrimaryWeapon;
+} else {
+weaponToCheck = currentSecondaryWeapon;
+}
+
+isSingleShot = isSingleShotWeapon(currentDefender, currentWeapon, weaponToCheck, 0); // 0 for defender
+
+if (isSingleShot) {
+// Check activation condition only for single-shot weapons
+shouldFire = FALSE;
+if (rapidFireActivation == 1) {
+shouldFire = get_val(Fire);
+} else {
+shouldFire = get_val(ADS) && get_val(Fire);
+}
+
+if (shouldFire) {
+if (msTimer % rapidFireSpeed == 0) combo_run(RapidFire);
+}
+}
+}
+
+// Crouch Spam
+if (ModToggle && CrouchSpamToggle) {
+if (crouchSpamMode == 1) {
+if (get_val(CrouchButton)) {
+crouchHoldTimer += 10;
+if (crouchHoldTimer >= crouchActivationTime) {
+if (msTimer % crouchSpamSpeed == 0) {
+combo_run(CrouchSpam);
+}
+}
+} else {
+crouchHoldTimer = 0;
+if (crouchSpamState != 0) {
+combo_run(CrouchSpam);
+}
+}
+} else if (crouchSpamMode == 2) {
+if (get_val(ADS) && get_val(Fire)) {
+if (msTimer % crouchSpamSpeed == 0) {
+combo_run(CrouchSpam);
+}
+} else {
+crouchHoldTimer = 0;
+if (crouchSpamState != 0) {
+combo_run(CrouchSpam);
+}
+}
+} else if (crouchSpamMode == 3) {
+if (get_val(Fire) && !get_val(XB1_LT)) {
+if (msTimer % crouchSpamSpeed == 0) {
+combo_run(CrouchSpam);
+}
+} else {
+crouchHoldTimer = 0;
+if (crouchSpamState != 0) {
+combo_run(CrouchSpam);
+}
+}
+} else if (crouchSpamMode == 4) {
+if (msTimer % crouchSpamSpeed == 0) {
+combo_run(CrouchSpam);
+}
+}
+}
+
+// T-Bag
+if (ModToggle && TBagToggle) {
+currLeftButton = get_val(XB1_LEFT);
+
+if (currLeftButton) {
+if (leftHoldTimer < 250) {
+leftHoldTimer += get_rtime();
+}
+
+if (leftHoldTimer >= 250) {
+if (msTimer % tBagSpeed == 0) {
+combo_run(TBag);
+}
+}
+
+} else {
+if (tBagState != 0) {
+set_val(CrouchButton, 0);
+tBagState = 0;
+}
+leftHoldTimer = 0;
+}
+
+prevLeftButton = currLeftButton;
+}
+
+            // Shaiko Peek
+if(ModToggle && ShaiikoPeekToggle && get_val(XB1_LT)){
+    if(get_ival(ShaikoLeanRight)) {
+        combo_run(LeanOnceRS);
+        combo_run(ShaikoCrouchCombo);
+    }
+    if(get_ival(ShaikoLeanLeft)) {
+        combo_run(LeanOnceLS);
+        combo_run(ShaikoCrouchCombo);
+    }
+    set_val(ShaikoLeanRight, 0);
+    set_val(ShaikoLeanLeft, 0);
+}
+
+// Shot Abuse Activation
+if (ModToggle && ShotAbuseToggle && get_val(ADS) && !get_val(Fire)) {
+if (!shotAbuseActive) {
+shotAbuseActive = TRUE;
+combo_run(ShotAbuseRelease);
+}
+} else {
+shotAbuseActive = FALSE;
+}
+
+// Jitter Activation Logic
+if (ModToggle && RSJitterToggle && get_val(JitterBind)) {
+if (abs(get_val(XB1_RX)) < 25 && abs(get_val(XB1_RY)) < 25 && !get_val(Fire)) {
+if (rsJitterActive == FALSE) {
+rsJitterActive = TRUE;
+}
+combo_run(RSJitter);
+} else {
+combo_stop(RSJitter);
+rsJitterActive = FALSE;
+}
+} else {
+combo_stop(RSJitter);
+rsJitterActive = FALSE;
+}
+
+// Crouch Shot
+if (ModToggle && CrouchShotToggle) {
+set_val(CrouchButton, get_val(CrouchButton));
+
+if(get_val(Fire)) {
+if(!lastFire) {
+set_val(CrouchButton, 100);
+crouchOverride = TRUE;
+}
+lastFire = TRUE;
+} else {
+if(lastFire) {
+set_val(CrouchButton, 100);
+crouchOverride = TRUE;
+} else if(crouchOverride) {
+set_val(CrouchButton, 0);
+crouchOverride = FALSE;
+}
+lastFire = FALSE;
+}
+}
+
+// Hip Lean
+if(ModToggle && HipLeanToggle) {
+if(quickToggleState) {
+if(!get_val(ADS)) {
+if(!get_val(ADS)) {
+if(get_ival(XB1_LX) == 100 && get_lval(XB1_LX) < 100) {
+combo_run(HipRight);
+}
+if(get_ival(XB1_LX) == -100 && get_lval(XB1_LX) > -100) {
+combo_run(HipLeft);
+}
+}
+}
+}
+}
+
+// Lean Spam
+if (ModToggle && LeanSpamToggle && get_val(XB1_LT) && get_val(XB1_RT)) {
+if (msTimer % leanSpamSpeed == 0) {
+combo_run(LeanSpam);
+}
+} else {
+if (leanSpamState != 0) {
+set_val(LeanLeft, 0);
+set_val(LeanRight, 0);
+leanSpamState = 0;
+}
+}
+
+// PronePeek
+if (ModToggle && PronePeekToggle) {
+if (get_val(Fire) && !get_val(ADS) && isMoving()) {
+fireHoldTime += 10;
+
+if (fireHoldTime >= 50 && !lastFire) {
+combo_run(PronePeekCombo);
+lastFire = TRUE;
+}
+} else {
+if (lastFire && !get_val(ADS)) {
+combo_run(StandUpCombo);
+}
+fireHoldTime = 0;
+lastFire = FALSE;
+
+if (!combo_running(PronePeekCombo) && !combo_running(StandUpCombo)) {
+set_val(CrouchButton, 0);
+crouchOverride = FALSE;
+}
+}
+}
+}
+}
+
+// Process adjustments
+if (adjustDelayActive) {
+adjustDelayTimer--;
+if (adjustDelayTimer <= 0) {
+adjustDelayActive = FALSE;
+
+if (adjustType == 1) {
+// Adjust vertical recoil
+if (currentWeapon == 1) {
+idx = currentDefender * 3 + currentPrimaryWeapon;
+defenderPrimaryVerticalRecoil[idx] = clamp(defenderPrimaryVerticalRecoil[idx] + adjustIncrement, 0, 100);
+} else {
+idx = currentDefender * 3 + currentSecondaryWeapon;
+defenderSecondaryVerticalRecoil[idx] = clamp(defenderSecondaryVerticalRecoil[idx] + adjustIncrement, 0, 100);
+}
+} else if (adjustType == 2) {
+// Adjust horizontal recoil
+if (currentWeapon == 1) {
+idx = currentDefender * 3 + currentPrimaryWeapon;
+defenderPrimaryHorizontalRecoil[idx] = clamp(defenderPrimaryHorizontalRecoil[idx] + adjustIncrement, -100, 100);
+} else {
+idx = currentDefender * 3 + currentSecondaryWeapon;
+defenderSecondaryHorizontalRecoil[idx] = clamp(defenderSecondaryHorizontalRecoil[idx] + adjustIncrement, -100, 100);
+}
+} else if (adjustType == 3) {
+deadzone = clamp(deadzone + adjustIncrement, 1, 80);
+} else if (adjustType == 4) {
+rapidFireSpeed = clamp(rapidFireSpeed + adjustIncrement, 1, 50);
+} else if (adjustType == 5) {
+crouchSpamSpeed = clamp(crouchSpamSpeed + adjustIncrement, 1, 50);
+} else if (adjustType == 6) {
+shaiikoPeekDelay = clamp(shaiikoPeekDelay + adjustIncrement, 31, 100);
+} else if (adjustType == 7) {
+aimOutDelay = clamp(aimOutDelay + adjustIncrement, 1, 50);
+} else if (adjustType == 8) {
+rsJitterStrength = clamp(rsJitterStrength + adjustIncrement, 10, 100);
+} else if (adjustType == 9) {
+leanSpamSpeed = clamp(leanSpamSpeed + adjustIncrement, 1, 50);
+} else if (adjustType == 10) {
+PronePeekDelay = clamp(PronePeekDelay + adjustIncrement, 20, 500);
+}
+
+adjustIncrement = 0;
+adjustType = 0;
+}
+}
+
+// Update previous button states
+prevMenu = currMenu;
+prevLT = currLT;
+prevB = currB;
+prevRight = currRight;
+prevLeft = currLeft;
+prevA = currA;
+prevUp = currUp;
+prevDown = currDown;
+}
+int weaponToCheck;
+// -----------------------------
+// Utility Functions
+// -----------------------------
+
+function drawBigDigit(int d, int xPos, int yPos) {
+print(xPos, yPos, OLED_FONT_MEDIUM, OLED_WHITE, Numbers[d]);
+}
+
+int _absNum = 0;
+
+function isMoving() {
+return (abs(get_val(XB1_LX)) > 20 || abs(get_val(XB1_LY)) > 20);
+}
+
+function drawBigNumber(int num, int xPos, int yPos) {
+_absNum = abs(num);
+
+if (num < 0) {
+drawMinusSign(xPos - 12, yPos);
+
+if (_absNum >= 100) {
+drawBigDigit(_absNum / 100, xPos, yPos);
+drawBigDigit((_absNum / 10) % 10, xPos + 12, yPos);
+drawBigDigit(_absNum % 10, xPos + 24, yPos);
+} else if (_absNum >= 10) {
+drawBigDigit(_absNum / 10, xPos, yPos);
+drawBigDigit(_absNum % 10, xPos + 12, yPos);
+} else {
+drawBigDigit(_absNum, xPos, yPos);
+}
+} else {
+if (_absNum >= 100) {
+drawBigDigit(_absNum / 100, xPos, yPos);
+drawBigDigit((_absNum / 10) % 10, xPos + 12, yPos);
+drawBigDigit(_absNum % 10, xPos + 24, yPos);
+} else if (_absNum >= 10) {
+drawBigDigit(_absNum / 10, xPos, yPos);
+drawBigDigit(_absNum % 10, xPos + 12, yPos);
+} else {
+drawBigDigit(_absNum, xPos, yPos);
+}
+}
+}
+
+function drawMinusSign(int xPos, int yPos) {
+line_oled(xPos, yPos + 6, xPos + 8, yPos + 6, 2, 1);
+}
+int isSingleShot
+// Updated Single Shot Weapon Check
+function isSingleShotWeapon(int operatorIndex, int weaponType, int weaponIndex, int isAttacker) {
+if (isAttacker == 0) { // DEFENDERS
+if (weaponType == 1) { // Primary weapons
+// DMRs and slug shotguns
+if (operatorIndex == 17 && weaponIndex == 1) return TRUE; // VIGIL - BOSG.12.2
+if (operatorIndex == 21 && weaponIndex == 1) return TRUE; // KAID - TCSG12
+if (operatorIndex == 24 && weaponIndex == 1) return TRUE; // GOYO - TCSG12
+if (operatorIndex == 28 && weaponIndex == 1) return TRUE; // ARUNI - DMR-14
+if (operatorIndex == 34 && weaponIndex == 1) return TRUE; // TUBARÃƒO - AR-15.50
+} else { // Secondary weapons
+// All pistols except machine pistols
+if (operatorIndex == 0 && weaponIndex == 1) return TRUE; // SMOKE - P226 MK25
+if (operatorIndex == 1 && weaponIndex == 0) return TRUE; // MUTE - P226 MK25
+if (operatorIndex == 2 && weaponIndex == 0) return TRUE; // CASTLE - M45 MEUSOC
+if (operatorIndex == 2 && weaponIndex == 1) return TRUE; // CASTLE - 5.7 USG
+if (operatorIndex == 3 && weaponIndex == 0) return TRUE; // PULSE - M45 MEUSOC
+if (operatorIndex == 3 && weaponIndex == 1) return TRUE; // PULSE - 5.7 USG
+if (operatorIndex == 4 && weaponIndex == 0) return TRUE; // DOC - P9
+if (operatorIndex == 5 && weaponIndex == 0) return TRUE; // ROOK - P9
+if (operatorIndex == 6 && weaponIndex == 0) return TRUE; // KAPKAN - PMM
+if (operatorIndex == 6 && weaponIndex == 1) return TRUE; // KAPKAN - GSH-18
+if (operatorIndex == 7 && weaponIndex == 0) return TRUE; // TACHANKA - PMM
+if (operatorIndex == 7 && weaponIndex == 1) return TRUE; // TACHANKA - GSH-18
+if (operatorIndex == 8 && weaponIndex == 0) return TRUE; // JÃ„GER - P12
+if (operatorIndex == 9 && weaponIndex == 0) return TRUE; // BANDIT - P12
+if (operatorIndex == 10 && weaponIndex == 0) return TRUE; // FROST - MK1 9mm
+if (operatorIndex == 11 && weaponIndex == 0) return TRUE; // VALKYRIE - D-50
+if (operatorIndex == 12 && weaponIndex == 0) return TRUE; // CAVEIRA - PRB92
+if (operatorIndex == 13 && weaponIndex == 0) return TRUE; // ECHO - P229
+if (operatorIndex == 14 && weaponIndex == 0) return TRUE; // MIRA - USP40
+if (operatorIndex == 15 && weaponIndex == 0) return TRUE; // LESION - Q-929
+if (operatorIndex == 16 && weaponIndex == 0) return TRUE; // ELA - RG15
+if (operatorIndex == 18 && weaponIndex == 1) return TRUE; // MAESTRO - Keratos .357
+if (operatorIndex == 19 && weaponIndex == 1) return TRUE; // ALIBI - Keratos .357
+if (operatorIndex == 20 && weaponIndex == 1) return TRUE; // CLASH - P-10C
+if (operatorIndex == 21 && weaponIndex == 0) return TRUE; // KAID - .44 Mag Semi-Auto
+if (operatorIndex == 22 && weaponIndex == 0) return TRUE; // MOZZIE - SDP 9mm
+if (operatorIndex == 23 && weaponIndex == 1) return TRUE; // WARDEN - P-10C
+if (operatorIndex == 24 && weaponIndex == 0) return TRUE; // GOYO - P229
+if (operatorIndex == 25 && weaponIndex == 0) return TRUE; // WAMAI - P12
+if (operatorIndex == 26 && weaponIndex == 1) return TRUE; // ORYX - USP40
+if (operatorIndex == 27 && weaponIndex == 0) return TRUE; // MELUSI - RG15
+if (operatorIndex == 28 && weaponIndex == 0) return TRUE; // ARUNI - PRB92
+if (operatorIndex == 29 && weaponIndex == 0) return TRUE; // THUNDERBIRD - Q-929
+if (operatorIndex == 30 && weaponIndex == 1) return TRUE; // THORN - 1911 TACOPS
+if (operatorIndex == 31 && weaponIndex == 0) return TRUE; // AZAMI - D-50
+if (operatorIndex == 35 && weaponIndex == 0) return TRUE; // SENTRY - P12
+}
+}
+return FALSE; // Default to FALSE for full-auto weapons
+} ú¿Ž¸Š³‚ºŠÈýÈþÍúÃ
